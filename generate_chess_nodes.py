@@ -39,7 +39,7 @@ def generate_graph(max_n=6):
                 nodes[node_id] = {
                     "id": node_id, "n": n, "t": t, "x": x, "y": 0,
                     "matrix": [M[0][0], M[0][1], M[1][0], M[1][1]],
-                    "nextNodes": [], "isWin": None
+                    "nextNodes": [], "isWin": None, "grundy": None
                 }
             # c 側節點 (從 y=1 開始避免重複中軸)
             for y in range(1, t + 1):
@@ -48,7 +48,7 @@ def generate_graph(max_n=6):
                 nodes[node_id] = {
                     "id": node_id, "n": n, "t": t, "x": 0, "y": y,
                     "matrix": [M[0][0], M[0][1], M[1][0], M[1][1]],
-                    "nextNodes": [], "isWin": None
+                    "nextNodes": [], "isWin": None, "grundy": None
                 }
                 
     # 2. 建立連線 (Edges)
@@ -101,6 +101,29 @@ def generate_graph(max_n=6):
             elif all(c["isWin"] is False for c in children):
                 node["isWin"] = True
                 changed = True
+
+    # 4. 計算 DP/Grundy (SG) 值 (計算 mex)
+    # 由於是 DAG，可以依照 n 從小到大 (由底層向上計算)
+    # 注意有些同 n 的點可能會互連，最好直接用 memoization 的 DFS
+    def compute_grundy(node_id):
+        node = nodes[node_id]
+        if node["grundy"] is not None:
+            return node["grundy"]
+        
+        child_grundys = set()
+        for child_id in node["nextNodes"]:
+            child_grundys.add(compute_grundy(child_id))
+            
+        # mex (Minimum Excluded Value)
+        g = 0
+        while g in child_grundys:
+            g += 1
+            
+        node["grundy"] = g
+        return g
+
+    for node_id in nodes:
+        compute_grundy(node_id)
 
     return list(nodes.values())
 

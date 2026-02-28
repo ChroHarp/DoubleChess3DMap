@@ -2,7 +2,7 @@ import { useStore } from '../store/useStore';
 import { Layers, Box, CreditCard } from 'lucide-react';
 
 export const SlicerPanel = () => {
-    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, viewMode, setViewMode } = useStore();
+    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, viewMode, setViewMode } = useStore();
 
     return (
         <div className="absolute top-4 right-4 bg-slate-800/90 text-slate-200 p-4 rounded-xl border border-slate-700 shadow-2xl backdrop-blur-md w-72 z-10 transition-all">
@@ -78,6 +78,16 @@ export const SlicerPanel = () => {
                         className="w-4 h-4 accent-emerald-500 rounded bg-slate-800 border-slate-600 focus:ring-emerald-500"
                     />
                     顯示路徑數量標籤
+                </label>
+
+                <label className="flex items-center gap-2 text-sm text-slate-300 cursor-pointer hover:text-white transition-colors">
+                    <input
+                        type="checkbox"
+                        checked={showGrundy}
+                        onChange={(e) => setShowGrundy(e.target.checked)}
+                        className="w-4 h-4 accent-emerald-500 rounded bg-slate-800 border-slate-600 focus:ring-emerald-500"
+                    />
+                    顯示 DP/Grundy 值
                 </label>
 
                 <div className="mt-4 pt-4 border-t border-slate-700/50 text-xs text-slate-400 space-y-2">

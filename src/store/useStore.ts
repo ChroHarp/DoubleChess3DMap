@@ -9,6 +9,7 @@ interface DefaultState {
     activeLevel: number | null;
     showBelowLevel: boolean;
     showPathCounts: boolean;
+    showGrundy: boolean;
     viewMode: 'sphere' | 'card';
     hoveredNode: string | null;
     selectedPath: string[]; // List of node IDs in the selected path
@@ -20,6 +21,7 @@ interface ActionState {
     setActiveLevel: (level: number | null) => void;
     setShowBelowLevel: (show: boolean) => void;
     setShowPathCounts: (show: boolean) => void;
+    setShowGrundy: (show: boolean) => void;
     setViewMode: (mode: 'sphere' | 'card') => void;
     setHoveredNode: (nodeId: string | null) => void;
     setSelectedNode: (nodeId: string | null) => void;
@@ -31,6 +33,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     activeLevel: Math.max(...nodesData.map((n) => n.n)),
     showBelowLevel: false,
     showPathCounts: true,
+    showGrundy: true,
     viewMode: 'card',
     hoveredNode: null,
     selectedPath: [],
@@ -40,6 +43,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     setActiveLevel: (level) => set({ activeLevel: level }),
     setShowBelowLevel: (show) => set({ showBelowLevel: show }),
     setShowPathCounts: (show) => set({ showPathCounts: show }),
+    setShowGrundy: (show) => set({ showGrundy: show }),
     setViewMode: (mode) => set({ viewMode: mode }),
     setHoveredNode: (nodeId) => set({ hoveredNode: nodeId }),
     triggerCameraReset: () => set((state) => ({ cameraResetSignal: state.cameraResetSignal + 1 })),

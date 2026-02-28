@@ -12,7 +12,8 @@
       0
     ],
     "nextNodes": [],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv1_e0_r0",
@@ -29,7 +30,8 @@
     "nextNodes": [
       "Lv0_e0_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv2_e0_r0",
@@ -46,7 +48,8 @@
     "nextNodes": [
       "Lv2_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv2_e1_r0",
@@ -61,11 +64,12 @@
       1
     ],
     "nextNodes": [
+      "Lv2_e1_r1",
       "Lv2_e1_c1",
-      "Lv0_e0_r0",
-      "Lv2_e1_r1"
+      "Lv0_e0_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv2_e1_r1",
@@ -82,7 +86,8 @@
     "nextNodes": [
       "Lv0_e0_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv2_e1_c1",
@@ -99,7 +104,8 @@
     "nextNodes": [
       "Lv0_e0_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv3_e0_r0",
@@ -116,7 +122,8 @@
     "nextNodes": [
       "Lv3_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv3_e1_r0",
@@ -135,7 +142,8 @@
       "Lv2_e1_r0",
       "Lv3_e1_c1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv3_e1_r1",
@@ -150,10 +158,11 @@
       2
     ],
     "nextNodes": [
-      "Lv2_e1_r0",
-      "Lv2_e1_r1"
+      "Lv2_e1_r1",
+      "Lv2_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv3_e1_c1",
@@ -171,7 +180,8 @@
       "Lv2_e1_r0",
       "Lv2_e1_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv4_e0_r0",
@@ -188,7 +198,8 @@
     "nextNodes": [
       "Lv4_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv4_e1_r0",
@@ -207,7 +218,8 @@
       "Lv4_e1_c1",
       "Lv4_e2_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv4_e1_r1",
@@ -225,7 +237,8 @@
       "Lv3_e1_r0",
       "Lv4_e2_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv4_e1_c1",
@@ -240,10 +253,11 @@
       0
     ],
     "nextNodes": [
-      "Lv4_e2_c1",
-      "Lv3_e1_r0"
+      "Lv3_e1_r0",
+      "Lv4_e2_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv4_e2_r0",
@@ -258,11 +272,12 @@
       2
     ],
     "nextNodes": [
-      "Lv2_e1_r0",
       "Lv4_e2_c1",
+      "Lv2_e1_r0",
       "Lv4_e2_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv4_e2_r1",
@@ -277,11 +292,12 @@
       2
     ],
     "nextNodes": [
-      "Lv2_e1_r0",
       "Lv2_e1_r1",
-      "Lv4_e2_r2"
+      "Lv4_e2_r2",
+      "Lv2_e1_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv4_e2_r2",
@@ -298,7 +314,8 @@
     "nextNodes": [
       "Lv2_e1_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv4_e2_c1",
@@ -313,11 +330,12 @@
       1
     ],
     "nextNodes": [
+      "Lv4_e2_c2",
       "Lv2_e1_r0",
-      "Lv2_e1_c1",
-      "Lv4_e2_c2"
+      "Lv2_e1_c1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv4_e2_c2",
@@ -334,7 +352,8 @@
     "nextNodes": [
       "Lv2_e1_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv5_e0_r0",
@@ -351,7 +370,8 @@
     "nextNodes": [
       "Lv5_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv5_e1_r0",
@@ -367,10 +387,11 @@
     ],
     "nextNodes": [
       "Lv5_e1_c1",
-      "Lv5_e1_r1",
-      "Lv5_e2_r0"
+      "Lv5_e2_r0",
+      "Lv5_e1_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv5_e1_r1",
@@ -388,7 +409,8 @@
       "Lv5_e2_r1",
       "Lv4_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv5_e1_c1",
@@ -403,10 +425,11 @@
       0
     ],
     "nextNodes": [
-      "Lv5_e2_c1",
-      "Lv4_e1_r0"
+      "Lv4_e1_r0",
+      "Lv5_e2_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv5_e2_r0",
@@ -425,7 +448,8 @@
       "Lv5_e2_c1",
       "Lv4_e2_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv5_e2_r1",
@@ -440,11 +464,12 @@
       3
     ],
     "nextNodes": [
-      "Lv5_e2_r2",
       "Lv4_e2_r0",
+      "Lv5_e2_r2",
       "Lv4_e2_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv5_e2_r2",
@@ -459,10 +484,11 @@
       3
     ],
     "nextNodes": [
-      "Lv4_e2_r1",
-      "Lv4_e2_r2"
+      "Lv4_e2_r2",
+      "Lv4_e2_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv5_e2_c1",
@@ -477,11 +503,12 @@
       1
     ],
     "nextNodes": [
+      "Lv4_e2_c1",
       "Lv4_e2_r0",
-      "Lv5_e2_c2",
-      "Lv4_e2_c1"
+      "Lv5_e2_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv5_e2_c2",
@@ -496,10 +523,11 @@
       0
     ],
     "nextNodes": [
-      "Lv4_e2_c2",
-      "Lv4_e2_c1"
+      "Lv4_e2_c1",
+      "Lv4_e2_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv6_e0_r0",
@@ -516,7 +544,8 @@
     "nextNodes": [
       "Lv6_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv6_e1_r0",
@@ -535,7 +564,8 @@
       "Lv6_e1_c1",
       "Lv6_e2_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv6_e1_r1",
@@ -550,10 +580,11 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e2_r1",
-      "Lv5_e1_r0"
+      "Lv5_e1_r0",
+      "Lv6_e2_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv6_e1_c1",
@@ -571,7 +602,8 @@
       "Lv5_e1_r0",
       "Lv6_e2_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv6_e2_r0",
@@ -586,11 +618,12 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e2_r1",
       "Lv6_e3_r0",
-      "Lv6_e2_c1"
+      "Lv6_e2_c1",
+      "Lv6_e2_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv6_e2_r1",
@@ -605,11 +638,12 @@
       3
     ],
     "nextNodes": [
-      "Lv5_e2_r0",
       "Lv6_e2_r2",
-      "Lv6_e3_r1"
+      "Lv6_e3_r1",
+      "Lv5_e2_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv6_e2_r2",
@@ -627,7 +661,8 @@
       "Lv5_e2_r1",
       "Lv6_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv6_e2_c1",
@@ -646,7 +681,8 @@
       "Lv5_e2_r0",
       "Lv6_e2_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv6_e2_c2",
@@ -661,10 +697,11 @@
       0
     ],
     "nextNodes": [
-      "Lv6_e3_c2",
-      "Lv5_e2_c1"
+      "Lv5_e2_c1",
+      "Lv6_e3_c2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv6_e3_r0",
@@ -683,7 +720,8 @@
       "Lv6_e3_c1",
       "Lv4_e2_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv6_e3_r1",
@@ -702,7 +740,8 @@
       "Lv4_e2_r0",
       "Lv4_e2_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv6_e3_r2",
@@ -717,11 +756,12 @@
       3
     ],
     "nextNodes": [
-      "Lv4_e2_r1",
       "Lv6_e3_r3",
-      "Lv4_e2_r2"
+      "Lv4_e2_r2",
+      "Lv4_e2_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv6_e3_r3",
@@ -738,7 +778,8 @@
     "nextNodes": [
       "Lv4_e2_r2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv6_e3_c1",
@@ -753,11 +794,12 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_c2",
+      "Lv4_e2_c1",
       "Lv4_e2_r0",
-      "Lv4_e2_c1"
+      "Lv6_e3_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv6_e3_c2",
@@ -772,11 +814,12 @@
       1
     ],
     "nextNodes": [
-      "Lv4_e2_c2",
       "Lv4_e2_c1",
+      "Lv4_e2_c2",
       "Lv6_e3_c3"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 2
   },
   {
     "id": "Lv6_e3_c3",
@@ -793,7 +836,8 @@
     "nextNodes": [
       "Lv4_e2_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv7_e0_r0",
@@ -810,7 +854,8 @@
     "nextNodes": [
       "Lv7_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e1_r0",
@@ -825,11 +870,12 @@
       1
     ],
     "nextNodes": [
-      "Lv7_e2_r0",
       "Lv7_e1_c1",
+      "Lv7_e2_r0",
       "Lv7_e1_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv7_e1_r1",
@@ -847,7 +893,8 @@
       "Lv7_e2_r1",
       "Lv6_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e1_c1",
@@ -865,7 +912,8 @@
       "Lv7_e2_c1",
       "Lv6_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e2_r0",
@@ -884,7 +932,8 @@
       "Lv7_e3_r0",
       "Lv7_e2_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e2_r1",
@@ -899,11 +948,12 @@
       3
     ],
     "nextNodes": [
+      "Lv7_e2_r2",
       "Lv6_e2_r0",
-      "Lv7_e3_r1",
-      "Lv7_e2_r2"
+      "Lv7_e3_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv7_e2_r2",
@@ -918,10 +968,11 @@
       4
     ],
     "nextNodes": [
-      "Lv7_e3_r2",
-      "Lv6_e2_r1"
+      "Lv6_e2_r1",
+      "Lv7_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e2_c1",
@@ -936,11 +987,12 @@
       1
     ],
     "nextNodes": [
-      "Lv7_e2_c2",
       "Lv7_e3_c1",
-      "Lv6_e2_r0"
+      "Lv6_e2_r0",
+      "Lv7_e2_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv7_e2_c2",
@@ -958,7 +1010,8 @@
       "Lv7_e3_c2",
       "Lv6_e2_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e3_r0",
@@ -973,11 +1026,12 @@
       3
     ],
     "nextNodes": [
+      "Lv7_e3_c1",
       "Lv6_e3_r0",
-      "Lv7_e3_r1",
-      "Lv7_e3_c1"
+      "Lv7_e3_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv7_e3_r1",
@@ -992,11 +1046,12 @@
       4
     ],
     "nextNodes": [
-      "Lv7_e3_r2",
+      "Lv6_e3_r1",
       "Lv6_e3_r0",
-      "Lv6_e3_r1"
+      "Lv7_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e3_r2",
@@ -1015,7 +1070,8 @@
       "Lv6_e3_r2",
       "Lv6_e3_r1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv7_e3_r3",
@@ -1030,10 +1086,11 @@
       4
     ],
     "nextNodes": [
-      "Lv6_e3_r2",
-      "Lv6_e3_r3"
+      "Lv6_e3_r3",
+      "Lv6_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e3_c1",
@@ -1048,11 +1105,12 @@
       2
     ],
     "nextNodes": [
-      "Lv7_e3_c2",
       "Lv6_e3_c1",
+      "Lv7_e3_c2",
       "Lv6_e3_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv7_e3_c2",
@@ -1067,11 +1125,12 @@
       1
     ],
     "nextNodes": [
-      "Lv6_e3_c2",
+      "Lv7_e3_c3",
       "Lv6_e3_c1",
-      "Lv7_e3_c3"
+      "Lv6_e3_c2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv7_e3_c3",
@@ -1089,7 +1148,8 @@
       "Lv6_e3_c2",
       "Lv6_e3_c3"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e0_r0",
@@ -1106,7 +1166,8 @@
     "nextNodes": [
       "Lv8_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e1_r0",
@@ -1121,11 +1182,12 @@
       1
     ],
     "nextNodes": [
+      "Lv8_e2_r0",
       "Lv8_e1_r1",
-      "Lv8_e1_c1",
-      "Lv8_e2_r0"
+      "Lv8_e1_c1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv8_e1_r1",
@@ -1143,7 +1205,8 @@
       "Lv8_e2_r1",
       "Lv7_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e1_c1",
@@ -1161,7 +1224,8 @@
       "Lv8_e2_c1",
       "Lv7_e1_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e2_r0",
@@ -1176,11 +1240,12 @@
       2
     ],
     "nextNodes": [
+      "Lv8_e3_r0",
       "Lv8_e2_r1",
-      "Lv8_e2_c1",
-      "Lv8_e3_r0"
+      "Lv8_e2_c1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e2_r1",
@@ -1199,7 +1264,8 @@
       "Lv7_e2_r0",
       "Lv8_e2_r2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv8_e2_r2",
@@ -1217,7 +1283,8 @@
       "Lv7_e2_r1",
       "Lv8_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e2_c1",
@@ -1233,10 +1300,11 @@
     ],
     "nextNodes": [
       "Lv7_e2_r0",
-      "Lv8_e3_c1",
-      "Lv8_e2_c2"
+      "Lv8_e2_c2",
+      "Lv8_e3_c1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv8_e2_c2",
@@ -1254,7 +1322,8 @@
       "Lv7_e2_c1",
       "Lv8_e3_c2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e3_r0",
@@ -1269,11 +1338,12 @@
       3
     ],
     "nextNodes": [
+      "Lv8_e4_r0",
       "Lv8_e3_r1",
-      "Lv8_e3_c1",
-      "Lv8_e4_r0"
+      "Lv8_e3_c1"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv8_e3_r1",
@@ -1289,10 +1359,11 @@
     ],
     "nextNodes": [
       "Lv7_e3_r0",
-      "Lv8_e3_r2",
-      "Lv8_e4_r1"
+      "Lv8_e4_r1",
+      "Lv8_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e3_r2",
@@ -1307,11 +1378,12 @@
       5
     ],
     "nextNodes": [
+      "Lv8_e3_r3",
       "Lv7_e3_r1",
-      "Lv8_e4_r2",
-      "Lv8_e3_r3"
+      "Lv8_e4_r2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv8_e3_r3",
@@ -1329,7 +1401,8 @@
       "Lv8_e4_r3",
       "Lv7_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e3_c1",
@@ -1344,11 +1417,12 @@
       2
     ],
     "nextNodes": [
-      "Lv7_e3_r0",
       "Lv8_e4_c1",
-      "Lv8_e3_c2"
+      "Lv8_e3_c2",
+      "Lv7_e3_r0"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e3_c2",
@@ -1363,11 +1437,12 @@
       1
     ],
     "nextNodes": [
-      "Lv8_e4_c2",
       "Lv7_e3_c1",
+      "Lv8_e4_c2",
       "Lv8_e3_c3"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 1
   },
   {
     "id": "Lv8_e3_c3",
@@ -1385,7 +1460,8 @@
       "Lv7_e3_c2",
       "Lv8_e4_c3"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e4_r0",
@@ -1404,7 +1480,8 @@
       "Lv6_e3_r0",
       "Lv8_e4_r1"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e4_r1",
@@ -1419,11 +1496,12 @@
       4
     ],
     "nextNodes": [
+      "Lv6_e3_r1",
       "Lv6_e3_r0",
-      "Lv8_e4_r2",
-      "Lv6_e3_r1"
+      "Lv8_e4_r2"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv8_e4_r2",
@@ -1439,10 +1517,11 @@
     ],
     "nextNodes": [
       "Lv8_e4_r3",
-      "Lv6_e3_r2",
-      "Lv6_e3_r1"
+      "Lv6_e3_r1",
+      "Lv6_e3_r2"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e4_r3",
@@ -1457,11 +1536,12 @@
       4
     ],
     "nextNodes": [
-      "Lv6_e3_r2",
       "Lv6_e3_r3",
+      "Lv6_e3_r2",
       "Lv8_e4_r4"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv8_e4_r4",
@@ -1478,7 +1558,8 @@
     "nextNodes": [
       "Lv6_e3_r3"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e4_c1",
@@ -1493,11 +1574,12 @@
       3
     ],
     "nextNodes": [
+      "Lv8_e4_c2",
       "Lv6_e3_c1",
-      "Lv6_e3_r0",
-      "Lv8_e4_c2"
+      "Lv6_e3_r0"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv8_e4_c2",
@@ -1512,11 +1594,12 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_c2",
       "Lv6_e3_c1",
+      "Lv6_e3_c2",
       "Lv8_e4_c3"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   },
   {
     "id": "Lv8_e4_c3",
@@ -1531,11 +1614,12 @@
       1
     ],
     "nextNodes": [
+      "Lv8_e4_c4",
       "Lv6_e3_c2",
-      "Lv6_e3_c3",
-      "Lv8_e4_c4"
+      "Lv6_e3_c3"
     ],
-    "isWin": false
+    "isWin": false,
+    "grundy": 3
   },
   {
     "id": "Lv8_e4_c4",
@@ -1552,6 +1636,7 @@
     "nextNodes": [
       "Lv6_e3_c3"
     ],
-    "isWin": true
+    "isWin": true,
+    "grundy": 0
   }
 ]

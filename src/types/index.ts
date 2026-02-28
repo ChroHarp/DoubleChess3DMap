@@ -7,4 +7,5 @@ export interface ChessNode {
     isWin: boolean | null;
     matrix: [number, number, number, number]; // [R0, R1, C0, C1]
     nextNodes: string[]; // for drawing Edges
+    grundy: number;      // DP/Grundy SG value
 }

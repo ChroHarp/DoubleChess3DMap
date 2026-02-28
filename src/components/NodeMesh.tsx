@@ -20,6 +20,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
         activeLevel,
         showBelowLevel,
         showPathCounts,
+        showGrundy,
         viewMode
     } = useStore();
 
@@ -191,6 +192,14 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
                 <Html transform center position={[0, viewMode === 'card' ? 1.5 : 1, 0]} scale={0.7} style={{ pointerEvents: 'none' }}>
                     <div className={`px-2 py-1 bg-amber-500/90 text-amber-50 rounded-lg shadow-lg border border-amber-400 font-bold whitespace-nowrap transition-all ${isDimmed ? 'opacity-20' : 'opacity-100'}`}>
                         {pathCounts[node.n].toLocaleString()} Paths
+                    </div>
+                </Html>
+            )}
+
+            {!isHiddenByLevel && showGrundy && node.grundy !== undefined && (
+                <Html transform center position={[viewMode === 'card' ? 1.4 : 1.2, viewMode === 'card' ? 0.8 : 0.8, 0]} scale={0.65} style={{ pointerEvents: 'none' }}>
+                    <div className={`px-2 py-0.5 bg-blue-600/90 text-blue-50 rounded-full shadow border border-blue-400 font-mono text-xs font-bold whitespace-nowrap transition-all ${isDimmed ? 'opacity-20' : 'opacity-100'}`}>
+                        G: {node.grundy}
                     </div>
                 </Html>
             )}
