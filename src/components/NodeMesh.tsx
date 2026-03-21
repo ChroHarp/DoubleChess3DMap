@@ -71,11 +71,12 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     const y_pos = node.t * -3;
     const z_pos = node.n * 5;
 
-    // Identify [[n,0],[n,0]] starting point (t=0, x=0, y=0)
-    const isStartNode = node.t === 0 && node.x === 0 && node.y === 0;
-
     // Identify [[0,0],[0,0]] ending point
     const isEndNode = node.matrix[0] === 0 && node.matrix[1] === 0 && node.matrix[2] === 0 && node.matrix[3] === 0;
+
+    // Identify starting points: R1=0 and C1=0 (excluding the end node)
+    // For original nodes, this is [[n,0],[n,0]], for rectangular nodes this is [[n,0],[n+1,0]] or vice-versa
+    const isStartNode = !isEndNode && node.matrix[1] === 0 && node.matrix[3] === 0;
 
     // Colors
     const winColor = new THREE.Color('#10b981'); // Emerald 500

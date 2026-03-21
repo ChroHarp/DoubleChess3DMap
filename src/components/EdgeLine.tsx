@@ -72,8 +72,14 @@ export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const startVec = new THREE.Vector3(startX, startY, startZ);
     const endVec = new THREE.Vector3(endX, endY, endZ);
 
-    const dir = new THREE.Vector3().subVectors(endVec, startVec).normalize();
+    const dir = new THREE.Vector3().subVectors(endVec, startVec);
     const length = startVec.distanceTo(endVec);
+
+    if (length < 0.001) {
+        return null; // Avoid NaN crash when placing an edge between identical coordinates
+    }
+    dir.normalize();
+
     // position arrow near the end, but before the 0.4 radius sphere
     const arrowPos = startVec.clone().add(dir.clone().multiplyScalar(Math.max(0, length - 0.6)));
 
