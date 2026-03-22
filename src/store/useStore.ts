@@ -5,6 +5,7 @@ import rawRectP1Data from '../rect_p1_data.json';
 import rawRectM1Data from '../rect_m1_data.json';
 import coordsOriginal from '../coords_original.json';
 import coordsUnified from '../coords_unified.json';
+import coordsTopological from '../coords_topological.json';
 
 const squareNodes = (rawData as ChessNode[]).map(n => ({ ...n, nodeType: 'square' as const }));
 const rectP1Nodes = rawRectP1Data as ChessNode[];
@@ -17,8 +18,9 @@ export const rectReferencedSquareIds = new Set<string>(
 );
 
 const coordSets: Record<string, Record<string, [number, number, number]>> = {
-    original: coordsOriginal as Record<string, [number, number, number]>,
-    unified: coordsUnified as Record<string, [number, number, number]>,
+    original: coordsOriginal as unknown as Record<string, [number, number, number]>,
+    unified: coordsUnified as unknown as Record<string, [number, number, number]>,
+    topological: coordsTopological as unknown as Record<string, [number, number, number]>,
 };
 
 interface DefaultState {

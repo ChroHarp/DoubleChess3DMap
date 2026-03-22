@@ -52,11 +52,31 @@ def coords_unified(nodes):
     return coords
 
 
+def coords_topological(nodes):
+    """
+    Topological coordinate system mapping mechanics to strict axes:
+      Z = (R0 + R1 + C0 + C1) * 3  -- Top-down: drops by 1 per r/c step, invariant under e step.
+                                      This perfectly layers the game tree by remaining topological sum.
+      Y = -(R1 + C1) * 3           -- Depth: moves back by 2 per e step, invariant under r/c step.
+                                      This perfectly separates pure displacement (e) from captures.
+      X = (R0 - C0) * 5 + (R1 - C1) * 1  -- Horizontal: Asymmetry. r step moves left, c step moves right.
+    """
+    coords = {}
+    for node in nodes:
+        R0, R1, C0, C1 = node["matrix"]
+        x_pos = (R0 - C0) * 5 + (R1 - C1) * 1
+        y_pos = -(R1 + C1) * 3
+        z_pos = (R0 + R1 + C0 + C1) * 3
+        coords[node["id"]] = [round(x_pos, 4), round(y_pos, 4), round(z_pos, 4)]
+    return coords
+
+
 def main():
     nodes = load_nodes()
 
     original = coords_original(nodes)
     unified = coords_unified(nodes)
+    topological = coords_topological(nodes)
 
     with open("src/coords_original.json", "w", encoding="utf-8") as f:
         json.dump(original, f, indent=2)
@@ -66,17 +86,21 @@ def main():
         json.dump(unified, f, indent=2)
     print(f"Written src/coords_unified.json ({len(unified)} nodes)")
 
-    # Verify no collisions in unified
+    with open("src/coords_topological.json", "w", encoding="utf-8") as f:
+        json.dump(topological, f, indent=2)
+    print(f"Written src/coords_topological.json ({len(topological)} nodes)")
+
+    # Verify no collisions in topological
     seen = {}
     collisions = 0
-    for nid, pos in unified.items():
+    for nid, pos in topological.items():
         key = tuple(pos)
         if key in seen:
             collisions += 1
             print(f"  COLLISION: {seen[key]} and {nid} at {pos}")
         else:
             seen[key] = nid
-    print(f"Unified collisions: {collisions}")
+    print(f"Topological collisions: {collisions}")
 
 
 if __name__ == "__main__":

@@ -45,6 +45,12 @@ export const SlicerPanel = () => {
                     >
                         Unified
                     </button>
+                    <button
+                        onClick={() => setCoordMode('topological')}
+                        className={`flex-1 flex items-center justify-center px-2 py-1 rounded-md text-xs font-mono transition-all ${coordMode === 'topological' ? 'bg-slate-700 text-sky-400 font-bold' : 'text-slate-500 hover:text-slate-300'}`}
+                    >
+                        Topological
+                    </button>
                 </div>
             </div>
 
