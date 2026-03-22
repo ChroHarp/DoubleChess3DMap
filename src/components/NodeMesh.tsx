@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import type { Mesh } from 'three';
 import * as THREE from 'three';
-import { useStore } from '../store/useStore';
+import { useStore, rectReferencedSquareIds } from '../store/useStore';
 import type { ChessNode } from '../types';
 
 interface NodeMeshProps {
@@ -21,7 +21,11 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
         showBelowLevel,
         showPathCounts,
         showGrundy,
-        viewMode
+        showRectNodes,
+        showM1Nodes,
+        showSquareNodes,
+        viewMode,
+        getNodePosition
     } = useStore();
 
     const isHovered = hoveredNode === node.id;
@@ -38,25 +42,29 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     // 1. By default, show activeLevel (n) and activeLevel - 1 (n-1)
     // 2. If activeLevel is even, ALSO show activeLevel - 2 (n-2) BUT ONLY where t is maximum (t == (n-2)/2)
     // 3. If showBelowLevel is true, show everything below activeLevel
+    const isP1 = node.nodeType === 'rect_p1';
+    const isM1 = node.nodeType === 'rect_m1';
+    const isRect = isP1 || isM1;
+    const isHiddenByRect = (isP1 && !showRectNodes) || (isM1 && !showM1Nodes);
+    // Hide square nodes when showSquareNodes is off, unless they are endpoints of rect edges
+    const isHiddenBySquare = !isRect && !showSquareNodes && !rectReferencedSquareIds.has(node.id);
     let isHiddenByLevel = false;
 
     if (activeLevel !== null) {
         if (showBelowLevel) {
-            // "Below" in this graph means n >= activeLevel. Wait.
-            // The tree actually goes from n=8 (root) down to n=0 (leaf).
-            // So showBelowLevel meaning "顯示此階及以下所有層次" usually means n <= activeLevel (like layers closer to the end).
-            // Let's implement the specific logic:
             isHiddenByLevel = node.n > activeLevel;
         } else {
-            // Strict selection
-            const isN = node.n === activeLevel;
-            const isNMinus1 = node.n === activeLevel - 1;
+            // For fractional n (rect nodes), visible when activeLevel matches floor or ceil
+            const nodeFloor = Math.floor(node.n);
+            const nodeCeil = Math.ceil(node.n);
+            const isN = nodeFloor === activeLevel || nodeCeil === activeLevel;
+            const isNMinus1 = nodeFloor === activeLevel - 1 || nodeCeil === activeLevel - 1;
 
             let isNMinus2MaxT = false;
             if (activeLevel % 2 === 0) {
                 const targetN = activeLevel - 2;
                 const maxT = Math.floor(targetN / 2);
-                isNMinus2MaxT = (node.n === targetN && node.t === maxT);
+                isNMinus2MaxT = ((nodeFloor === targetN || nodeCeil === targetN) && node.t === maxT);
             }
 
             isHiddenByLevel = !(isN || isNMinus1 || isNMinus2MaxT);
@@ -64,22 +72,18 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     }
     const isDimmed = selectedPath.length > 0 && !isSelected;
 
-    // Ensure unique coordinates by incorporating t dimension:
-    // r-side maps to positive X, c-side maps to negative X.
-    // t-dimension pushes nodes backwards along Y.
-    const x_pos = (node.x > 0 ? node.x : -node.y) * 3;
-    const y_pos = node.t * -3;
-    const z_pos = node.n * 5;
-
-    // Identify [[n,0],[n,0]] starting point (t=0, x=0, y=0)
-    const isStartNode = node.t === 0 && node.x === 0 && node.y === 0;
+    const [x_pos, y_pos, z_pos] = getNodePosition(node.id);
 
     // Identify [[0,0],[0,0]] ending point
     const isEndNode = node.matrix[0] === 0 && node.matrix[1] === 0 && node.matrix[2] === 0 && node.matrix[3] === 0;
 
-    // Colors
-    const winColor = new THREE.Color('#10b981'); // Emerald 500
-    const loseColor = new THREE.Color('#ef4444'); // Red 500
+    // Identify starting points: R1=0 and C1=0 (excluding the end node)
+    // For original nodes, this is [[n,0],[n,0]], for rectangular nodes this is [[n,0],[n+1,0]] or vice-versa
+    const isStartNode = !isEndNode && node.matrix[1] === 0 && node.matrix[3] === 0;
+
+    // Colors — square=emerald/red; rect (p1 & m1) both use cyan/amber
+    const winColor = new THREE.Color(isRect ? '#67e8f9' : '#10b981');
+    const loseColor = new THREE.Color(isRect ? '#fcd34d' : '#ef4444');
     const defaultColor = new THREE.Color('#94a3b8'); // Slate 400
     const startColor = new THREE.Color('#ffffff'); // White
     const endColor = new THREE.Color('#eab308'); // Yellow 500
@@ -104,9 +108,14 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
 
     let cardBg = 'bg-slate-800/90 border-slate-600 text-slate-200';
     if (isEndNode) cardBg = 'bg-yellow-900/90 border-yellow-500 text-yellow-50';
-    else if (isStartNode) cardBg = 'bg-slate-200/90 border-white text-slate-900';
-    else if (node.isWin === true) cardBg = 'bg-emerald-900/90 border-emerald-500 text-emerald-50';
-    else if (node.isWin === false) cardBg = 'bg-red-900/90 border-red-500 text-red-50';
+    else if (isStartNode) cardBg = isRect ? 'bg-slate-300/90 border-slate-400 text-slate-900' : 'bg-slate-200/90 border-white text-slate-900';
+    else if (node.isWin === true) {
+        if (isRect) cardBg = 'bg-cyan-800/70 border-cyan-400 text-cyan-50';
+        else cardBg = 'bg-emerald-900/90 border-emerald-500 text-emerald-50';
+    } else if (node.isWin === false) {
+        if (isRect) cardBg = 'bg-amber-800/70 border-amber-400 text-amber-50';
+        else cardBg = 'bg-red-900/90 border-red-500 text-red-50';
+    }
 
     // Hover effect: scale up slightly
     useFrame(() => {
@@ -117,7 +126,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     });
 
     return (
-        <group visible={!isHiddenByLevel} position={[x_pos, y_pos, z_pos]}>
+        <group visible={!isHiddenByLevel && !isHiddenByRect && !isHiddenBySquare && !isHiddenBySquare} position={[x_pos, y_pos, z_pos]}>
             <mesh
                 ref={meshRef}
                 onPointerOver={(e) => {
@@ -147,8 +156,8 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
                 />
             </mesh>
 
-            {!isHiddenByLevel && viewMode === 'card' && (
-                <Html transform center style={{ pointerEvents: 'none' }} scale={0.65}>
+            {!isHiddenByLevel && !isHiddenByRect && !isHiddenBySquare && viewMode === 'card' && (
+                <Html transform center style={{ pointerEvents: 'none' }} scale={isRect ? 0.45 : 0.65}>
                     <div className={`px-2 py-1.5 rounded-md border shadow-2xl backdrop-blur-md text-center flex flex-col items-center justify-center transition-all ${cardBg} ${isDimmed ? 'opacity-20 flex' : 'opacity-100'}`}>
                         <div className="font-mono text-sm font-bold tracking-widest whitespace-nowrap">
                             [{node.matrix[0]}, {node.matrix[1]}]<br />
@@ -161,7 +170,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
                 </Html>
             )}
 
-            {!isHiddenByLevel && isHovered && viewMode === 'sphere' && (
+            {!isHiddenByLevel && !isHiddenByRect && !isHiddenBySquare && isHovered && viewMode === 'sphere' && (
                 <Html distanceFactor={15} center style={{ pointerEvents: 'none' }}>
                     <div className="bg-slate-900/90 text-white p-3 rounded-lg shadow-xl border border-slate-700 w-48 backdrop-blur-sm z-50">
                         <h3 className="font-bold border-b border-slate-700 pb-1 mb-2 text-sm">{node.id}</h3>
@@ -188,7 +197,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
                 </Html>
             )}
 
-            {!isHiddenByLevel && showPathCounts && isStartNode && node.n > 0 && pathCounts[node.n] && (
+            {!isHiddenByLevel && !isHiddenByRect && !isHiddenBySquare && showPathCounts && isStartNode && node.n > 0 && pathCounts[node.n] && (
                 <Html transform center position={[0, viewMode === 'card' ? 1.5 : 1, 0]} scale={0.7} style={{ pointerEvents: 'none' }}>
                     <div className={`px-2 py-1 bg-amber-500/90 text-amber-50 rounded-lg shadow-lg border border-amber-400 font-bold whitespace-nowrap transition-all ${isDimmed ? 'opacity-20' : 'opacity-100'}`}>
                         {pathCounts[node.n].toLocaleString()} Paths
@@ -196,7 +205,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
                 </Html>
             )}
 
-            {!isHiddenByLevel && showGrundy && node.grundy !== undefined && (
+            {!isHiddenByLevel && !isHiddenByRect && !isHiddenBySquare && showGrundy && node.grundy !== undefined && (
                 <Html transform center position={[viewMode === 'card' ? 1.4 : 1.2, viewMode === 'card' ? 0.8 : 0.8, 0]} scale={0.65} style={{ pointerEvents: 'none' }}>
                     <div className={`px-2 py-0.5 bg-blue-600/90 text-blue-50 rounded-full shadow border border-blue-400 font-mono text-xs font-bold whitespace-nowrap transition-all ${isDimmed ? 'opacity-20' : 'opacity-100'}`}>
                         G: {node.grundy}

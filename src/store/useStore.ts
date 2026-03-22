@@ -1,8 +1,25 @@
 import { create } from 'zustand';
 import type { ChessNode } from '../types';
 import rawData from '../data.json';
+import rawRectP1Data from '../rect_p1_data.json';
+import rawRectM1Data from '../rect_m1_data.json';
+import coordsOriginal from '../coords_original.json';
+import coordsUnified from '../coords_unified.json';
 
-const nodesData = rawData as ChessNode[];
+const squareNodes = (rawData as ChessNode[]).map(n => ({ ...n, nodeType: 'square' as const }));
+const rectP1Nodes = rawRectP1Data as ChessNode[];
+const rectM1Nodes = rawRectM1Data as ChessNode[];
+const nodesData = [...squareNodes, ...rectP1Nodes, ...rectM1Nodes];
+
+// Pre-compute: square node IDs that are referenced by any rect nextNodes
+export const rectReferencedSquareIds = new Set<string>(
+    [...rectP1Nodes, ...rectM1Nodes].flatMap(n => n.nextNodes)
+);
+
+const coordSets: Record<string, Record<string, [number, number, number]>> = {
+    original: coordsOriginal as Record<string, [number, number, number]>,
+    unified: coordsUnified as Record<string, [number, number, number]>,
+};
 
 interface DefaultState {
     nodes: ChessNode[];
@@ -10,11 +27,16 @@ interface DefaultState {
     showBelowLevel: boolean;
     showPathCounts: boolean;
     showGrundy: boolean;
+    showRectNodes: boolean;
+    showM1Nodes: boolean;
+    showSquareNodes: boolean;
     viewMode: 'sphere' | 'card';
+    coordMode: string;
     hoveredNode: string | null;
     selectedPath: string[]; // List of node IDs in the selected path
     maxLevel: number;
     cameraResetSignal: number;
+    getNodePosition: (nodeId: string) => [number, number, number];
 }
 
 interface ActionState {
@@ -22,7 +44,11 @@ interface ActionState {
     setShowBelowLevel: (show: boolean) => void;
     setShowPathCounts: (show: boolean) => void;
     setShowGrundy: (show: boolean) => void;
+    setShowRectNodes: (show: boolean) => void;
+    setShowM1Nodes: (show: boolean) => void;
+    setShowSquareNodes: (show: boolean) => void;
     setViewMode: (mode: 'sphere' | 'card') => void;
+    setCoordMode: (mode: string) => void;
     setHoveredNode: (nodeId: string | null) => void;
     setSelectedNode: (nodeId: string | null) => void;
     triggerCameraReset: () => void;
@@ -30,21 +56,34 @@ interface ActionState {
 
 export const useStore = create<DefaultState & ActionState>((set, get) => ({
     nodes: nodesData,
-    activeLevel: Math.max(...nodesData.map((n) => n.n)),
+    activeLevel: Math.ceil(Math.max(...nodesData.map((n) => n.n))),
     showBelowLevel: false,
     showPathCounts: true,
     showGrundy: true,
+    showRectNodes: true,
+    showM1Nodes: true,
+    showSquareNodes: true,
     viewMode: 'card',
+    coordMode: 'original',
     hoveredNode: null,
     selectedPath: [],
-    maxLevel: Math.max(...nodesData.map((n) => n.n)),
+    maxLevel: Math.ceil(Math.max(...nodesData.map((n) => n.n))),
     cameraResetSignal: 0,
+    getNodePosition: (nodeId: string) => {
+        const mode = get().coordMode;
+        const coords = coordSets[mode] || coordSets.original;
+        return coords[nodeId] || [0, 0, 0];
+    },
 
     setActiveLevel: (level) => set({ activeLevel: level }),
     setShowBelowLevel: (show) => set({ showBelowLevel: show }),
     setShowPathCounts: (show) => set({ showPathCounts: show }),
     setShowGrundy: (show) => set({ showGrundy: show }),
+    setShowRectNodes: (show) => set({ showRectNodes: show }),
+    setShowM1Nodes: (show) => set({ showM1Nodes: show }),
+    setShowSquareNodes: (show) => set({ showSquareNodes: show }),
     setViewMode: (mode) => set({ viewMode: mode }),
+    setCoordMode: (mode) => set({ coordMode: mode }),
     setHoveredNode: (nodeId) => set({ hoveredNode: nodeId }),
     triggerCameraReset: () => set((state) => ({ cameraResetSignal: state.cameraResetSignal + 1 })),
 

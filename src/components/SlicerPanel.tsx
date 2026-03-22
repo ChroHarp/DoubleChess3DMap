@@ -1,8 +1,8 @@
 import { useStore } from '../store/useStore';
-import { Layers, Box, CreditCard } from 'lucide-react';
+import { Layers, Box, CreditCard, Axis3D } from 'lucide-react';
 
 export const SlicerPanel = () => {
-    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, viewMode, setViewMode } = useStore();
+    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, showRectNodes, setShowRectNodes, showM1Nodes, setShowM1Nodes, showSquareNodes, setShowSquareNodes, viewMode, setViewMode, coordMode, setCoordMode } = useStore();
 
     return (
         <div className="absolute top-4 right-4 bg-slate-800/90 text-slate-200 p-4 rounded-xl border border-slate-700 shadow-2xl backdrop-blur-md w-72 z-10 transition-all">
@@ -11,7 +11,7 @@ export const SlicerPanel = () => {
                     <Layers className="w-5 h-5 text-emerald-400" />
                     <h2 className="font-semibold text-lg">Level Slicer</h2>
                 </div>
-                <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-700">
+                <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-700 gap-0.5">
                     <button
                         onClick={() => setViewMode('sphere')}
                         className={`p-1.5 rounded-md transition-all ${viewMode === 'sphere' ? 'bg-slate-700 text-emerald-400' : 'text-slate-500 hover:text-slate-300'}`}
@@ -25,6 +25,25 @@ export const SlicerPanel = () => {
                         title="Card View"
                     >
                         <CreditCard className="w-4 h-4" />
+                    </button>
+                </div>
+            </div>
+
+            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-slate-700/50">
+                <Axis3D className="w-4 h-4 text-sky-400" />
+                <span className="text-sm text-slate-400">Coords:</span>
+                <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-700 flex-1">
+                    <button
+                        onClick={() => setCoordMode('original')}
+                        className={`flex-1 px-2 py-1 rounded-md text-xs font-mono transition-all ${coordMode === 'original' ? 'bg-slate-700 text-sky-400' : 'text-slate-500 hover:text-slate-300'}`}
+                    >
+                        Original
+                    </button>
+                    <button
+                        onClick={() => setCoordMode('unified')}
+                        className={`flex-1 px-2 py-1 rounded-md text-xs font-mono transition-all ${coordMode === 'unified' ? 'bg-slate-700 text-sky-400' : 'text-slate-500 hover:text-slate-300'}`}
+                    >
+                        Unified
                     </button>
                 </div>
             </div>
@@ -90,6 +109,36 @@ export const SlicerPanel = () => {
                     顯示 DP/Grundy 值
                 </label>
 
+                <label className="flex items-center gap-2 text-sm text-slate-300 cursor-pointer hover:text-white transition-colors">
+                    <input
+                        type="checkbox"
+                        checked={showRectNodes}
+                        onChange={(e) => setShowRectNodes(e.target.checked)}
+                        className="w-4 h-4 accent-emerald-500 rounded bg-slate-800 border-slate-600 focus:ring-emerald-500"
+                    />
+                    顯示矩形 p1 節點
+                </label>
+
+                <label className="flex items-center gap-2 text-sm text-slate-300 cursor-pointer hover:text-white transition-colors">
+                    <input
+                        type="checkbox"
+                        checked={showM1Nodes}
+                        onChange={(e) => setShowM1Nodes(e.target.checked)}
+                        className="w-4 h-4 accent-cyan-500 rounded bg-slate-800 border-slate-600 focus:ring-cyan-500"
+                    />
+                    顯示矩形 m1 節點
+                </label>
+
+                <label className="flex items-center gap-2 text-sm text-slate-300 cursor-pointer hover:text-white transition-colors">
+                    <input
+                        type="checkbox"
+                        checked={showSquareNodes}
+                        onChange={(e) => setShowSquareNodes(e.target.checked)}
+                        className="w-4 h-4 accent-emerald-500 rounded bg-slate-800 border-slate-600 focus:ring-emerald-500"
+                    />
+                    顯示方形節點（隱藏時保留矩形端點）
+                </label>
+
                 <div className="mt-4 pt-4 border-t border-slate-700/50 text-xs text-slate-400 space-y-2">
                     <p className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
@@ -98,6 +147,14 @@ export const SlicerPanel = () => {
                     <p className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-red-500 shadow-sm"></span>
                         Losing Nodes
+                    </p>
+                    <p className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-cyan-300"></span>
+                        Rect Win (p1 / m1)
+                    </p>
+                    <p className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-amber-300"></span>
+                        Rect Lose (p1 / m1)
                     </p>
                     <p className="flex items-center gap-2">
                         <span className="w-4 h-0.5 bg-amber-500 rounded"></span>
