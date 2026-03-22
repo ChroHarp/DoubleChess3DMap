@@ -1,6 +1,8 @@
 [
   {
-    "id": "Rect_m1_2_0_1_0",
+    "id": "2x1_0_0",
+    "legacyId": "Rect_m1_2_0_1_0",
+    "tier": 3,
     "n": 2.5,
     "t": 0,
     "x": 1,
@@ -12,14 +14,16 @@
       0
     ],
     "nextNodes": [
-      "Lv2_e1_r1"
+      "1x1_0_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_0_2_0",
+    "id": "3x2_0_0",
+    "legacyId": "Rect_m1_3_0_2_0",
+    "tier": 5,
     "n": 3.5,
     "t": 0,
     "x": 1,
@@ -31,14 +35,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_2_1_1_1"
+      "3x2_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_2_1_1_1",
+    "id": "3x2_1_1",
+    "legacyId": "Rect_m1_2_1_1_1",
+    "tier": 3,
     "n": 2.5,
     "t": 1,
     "x": 1,
@@ -50,16 +56,18 @@
       1
     ],
     "nextNodes": [
-      "Lv4_e2_r2",
-      "Rect_m1_1_1_1_0",
-      "Lv2_e1_r1"
+      "2x2_0_2",
+      "2x1_1_0",
+      "1x1_0_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_1_1_1_0",
+    "id": "2x1_1_0",
+    "legacyId": "Rect_m1_1_1_1_0",
+    "tier": 2,
     "n": 1.5,
     "t": 1,
     "x": 0,
@@ -71,15 +79,17 @@
       0
     ],
     "nextNodes": [
-      "Lv2_e1_r1",
-      "Lv0_e0_r0"
+      "1x1_0_1",
+      "0x0_0_0"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_0_3_0",
+    "id": "4x3_0_0",
+    "legacyId": "Rect_m1_4_0_3_0",
+    "tier": 7,
     "n": 4.5,
     "t": 0,
     "x": 1,
@@ -91,14 +101,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_3_1_2_1"
+      "4x3_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_1_2_1",
+    "id": "4x3_1_1",
+    "legacyId": "Rect_m1_3_1_2_1",
+    "tier": 5,
     "n": 3.5,
     "t": 1,
     "x": 1,
@@ -110,16 +122,18 @@
       1
     ],
     "nextNodes": [
-      "Lv4_e2_r1",
-      "Rect_m1_3_0_1_2",
-      "Rect_m1_2_2_2_0"
+      "3x3_1_2",
+      "3x3_0_2",
+      "4x2_2_0"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_0_1_2",
+    "id": "3x3_0_2",
+    "legacyId": "Rect_m1_3_0_1_2",
+    "tier": 4,
     "n": 4.5,
     "t": 1,
     "x": 2,
@@ -131,15 +145,17 @@
       2
     ],
     "nextNodes": [
-      "Lv4_e2_r2",
-      "Rect_m1_2_1_1_1"
+      "2x2_0_2",
+      "3x2_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_2_2_2_0",
+    "id": "4x2_2_0",
+    "legacyId": "Rect_m1_2_2_2_0",
+    "tier": 4,
     "n": 2.5,
     "t": 1,
     "x": 0,
@@ -151,15 +167,17 @@
       0
     ],
     "nextNodes": [
-      "Lv2_e1_r0",
-      "Rect_m1_2_1_1_1"
+      "2x2_1_1",
+      "3x2_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_0_4_0",
+    "id": "5x4_0_0",
+    "legacyId": "Rect_m1_5_0_4_0",
+    "tier": 9,
     "n": 5.5,
     "t": 0,
     "x": 1,
@@ -171,14 +189,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_4_1_3_1"
+      "5x4_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_1_3_1",
+    "id": "5x4_1_1",
+    "legacyId": "Rect_m1_4_1_3_1",
+    "tier": 7,
     "n": 4.5,
     "t": 1,
     "x": 1,
@@ -190,16 +210,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_3_2_2_2",
-      "Rect_m1_4_0_2_2",
-      "Rect_m1_3_2_3_0"
+      "5x4_2_2",
+      "4x4_0_2",
+      "5x3_2_0"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_2_2_2",
+    "id": "5x4_2_2",
+    "legacyId": "Rect_m1_3_2_2_2",
+    "tier": 5,
     "n": 4.5,
     "t": 2,
     "x": 1,
@@ -211,16 +233,18 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_r2",
-      "Rect_m1_2_2_2_1",
-      "Lv4_e2_r1"
+      "4x4_1_3",
+      "4x3_2_1",
+      "3x3_1_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_0_2_2",
+    "id": "4x4_0_2",
+    "legacyId": "Rect_m1_4_0_2_2",
+    "tier": 6,
     "n": 5.5,
     "t": 1,
     "x": 2,
@@ -232,15 +256,17 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_r2",
-      "Rect_m1_3_1_2_1"
+      "4x4_1_3",
+      "4x3_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_2_3_0",
+    "id": "5x3_2_0",
+    "legacyId": "Rect_m1_3_2_3_0",
+    "tier": 6,
     "n": 3.5,
     "t": 1,
     "x": 0,
@@ -252,15 +278,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_2_2_2_1",
-      "Rect_m1_3_1_2_1"
+      "4x3_2_1",
+      "4x3_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_2_2_2_1",
+    "id": "4x3_2_1",
+    "legacyId": "Rect_m1_2_2_2_1",
+    "tier": 4,
     "n": 3.5,
     "t": 2,
     "x": 0,
@@ -272,16 +300,18 @@
       1
     ],
     "nextNodes": [
-      "Lv4_e2_r1",
-      "Lv3_e1_c1",
-      "Lv2_e1_r0"
+      "3x3_1_2",
+      "3x2_2_0",
+      "2x2_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_0_5_0",
+    "id": "6x5_0_0",
+    "legacyId": "Rect_m1_6_0_5_0",
+    "tier": 11,
     "n": 6.5,
     "t": 0,
     "x": 1,
@@ -293,14 +323,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_5_1_4_1"
+      "6x5_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_1_4_1",
+    "id": "6x5_1_1",
+    "legacyId": "Rect_m1_5_1_4_1",
+    "tier": 9,
     "n": 5.5,
     "t": 1,
     "x": 1,
@@ -312,16 +344,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_4_2_3_2",
-      "Rect_m1_5_0_3_2",
-      "Rect_m1_4_2_4_0"
+      "6x5_2_2",
+      "5x5_0_2",
+      "6x4_2_0"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_2_3_2",
+    "id": "6x5_2_2",
+    "legacyId": "Rect_m1_4_2_3_2",
+    "tier": 7,
     "n": 5.5,
     "t": 2,
     "x": 1,
@@ -333,16 +367,18 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_r1",
-      "Rect_m1_4_1_2_3",
-      "Rect_m1_3_3_3_1"
+      "5x5_2_3",
+      "5x5_1_3",
+      "6x4_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_0_3_2",
+    "id": "5x5_0_2",
+    "legacyId": "Rect_m1_5_0_3_2",
+    "tier": 8,
     "n": 6.5,
     "t": 1,
     "x": 2,
@@ -354,15 +390,17 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_4_1_2_3",
-      "Rect_m1_4_1_3_1"
+      "5x5_1_3",
+      "5x4_1_1"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_2_4_0",
+    "id": "6x4_2_0",
+    "legacyId": "Rect_m1_4_2_4_0",
+    "tier": 8,
     "n": 4.5,
     "t": 1,
     "x": 0,
@@ -374,15 +412,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_3_3_3_1",
-      "Rect_m1_4_1_3_1"
+      "6x4_3_1",
+      "5x4_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_1_2_3",
+    "id": "5x5_1_3",
+    "legacyId": "Rect_m1_4_1_2_3",
+    "tier": 6,
     "n": 5.5,
     "t": 2,
     "x": 2,
@@ -394,16 +434,18 @@
       3
     ],
     "nextNodes": [
-      "Lv6_e3_r2",
-      "Lv7_e3_r3",
-      "Rect_m1_3_2_2_2"
+      "4x4_1_3",
+      "4x5_0_4",
+      "5x4_2_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_3_3_1",
+    "id": "6x4_3_1",
+    "legacyId": "Rect_m1_3_3_3_1",
+    "tier": 6,
     "n": 4.5,
     "t": 2,
     "x": 0,
@@ -415,16 +457,18 @@
       1
     ],
     "nextNodes": [
-      "Lv4_e2_r0",
-      "Rect_m1_3_2_2_2",
-      "Rect_m1_2_3_3_0"
+      "4x4_2_2",
+      "5x4_2_2",
+      "5x3_3_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_2_3_3_0",
+    "id": "5x3_3_0",
+    "legacyId": "Rect_m1_2_3_3_0",
+    "tier": 5,
     "n": 4.5,
     "t": 2,
     "x": 0,
@@ -436,15 +480,17 @@
       0
     ],
     "nextNodes": [
-      "Lv4_e2_c1",
-      "Rect_m1_2_2_2_1"
+      "3x3_2_1",
+      "4x3_2_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_0_6_0",
+    "id": "7x6_0_0",
+    "legacyId": "Rect_m1_7_0_6_0",
+    "tier": 13,
     "n": 7.5,
     "t": 0,
     "x": 1,
@@ -456,14 +502,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_6_1_5_1"
+      "7x6_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_1_5_1",
+    "id": "7x6_1_1",
+    "legacyId": "Rect_m1_6_1_5_1",
+    "tier": 11,
     "n": 6.5,
     "t": 1,
     "x": 1,
@@ -475,16 +523,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_5_2_4_2",
-      "Rect_m1_6_0_4_2",
-      "Rect_m1_5_2_5_0"
+      "7x6_2_2",
+      "6x6_0_2",
+      "7x5_2_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_2_4_2",
+    "id": "7x6_2_2",
+    "legacyId": "Rect_m1_5_2_4_2",
+    "tier": 9,
     "n": 6.5,
     "t": 2,
     "x": 1,
@@ -496,16 +546,18 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_4_3_3_3",
-      "Rect_m1_5_1_3_3",
-      "Rect_m1_4_3_4_1"
+      "7x6_3_3",
+      "6x6_1_3",
+      "7x5_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_0_4_2",
+    "id": "6x6_0_2",
+    "legacyId": "Rect_m1_6_0_4_2",
+    "tier": 10,
     "n": 7.5,
     "t": 1,
     "x": 2,
@@ -517,15 +569,17 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_5_1_3_3",
-      "Rect_m1_5_1_4_1"
+      "6x6_1_3",
+      "6x5_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_2_5_0",
+    "id": "7x5_2_0",
+    "legacyId": "Rect_m1_5_2_5_0",
+    "tier": 10,
     "n": 5.5,
     "t": 1,
     "x": 0,
@@ -537,15 +591,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_4_3_4_1",
-      "Rect_m1_5_1_4_1"
+      "7x5_3_1",
+      "6x5_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_3_3_3",
+    "id": "7x6_3_3",
+    "legacyId": "Rect_m1_4_3_3_3",
+    "tier": 7,
     "n": 6.5,
     "t": 3,
     "x": 1,
@@ -557,16 +613,18 @@
       3
     ],
     "nextNodes": [
-      "Lv8_e4_r2",
-      "Rect_m1_3_3_3_2",
-      "Lv6_e3_r1"
+      "6x6_2_4",
+      "6x5_3_2",
+      "5x5_2_3"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_1_3_3",
+    "id": "6x6_1_3",
+    "legacyId": "Rect_m1_5_1_3_3",
+    "tier": 8,
     "n": 6.5,
     "t": 2,
     "x": 2,
@@ -578,16 +636,18 @@
       3
     ],
     "nextNodes": [
-      "Lv8_e4_r2",
-      "Rect_m1_5_0_2_4",
-      "Rect_m1_4_2_3_2"
+      "6x6_2_4",
+      "5x6_0_4",
+      "6x5_2_2"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_3_4_1",
+    "id": "7x5_3_1",
+    "legacyId": "Rect_m1_4_3_4_1",
+    "tier": 8,
     "n": 5.5,
     "t": 2,
     "x": 0,
@@ -599,16 +659,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_3_3_3_2",
-      "Rect_m1_4_2_3_2",
-      "Rect_m1_3_4_4_0"
+      "6x5_3_2",
+      "6x5_2_2",
+      "7x4_4_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_3_3_2",
+    "id": "6x5_3_2",
+    "legacyId": "Rect_m1_3_3_3_2",
+    "tier": 6,
     "n": 5.5,
     "t": 3,
     "x": 0,
@@ -620,16 +682,18 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_r1",
-      "Lv5_e2_c1",
-      "Lv4_e2_r0"
+      "5x5_2_3",
+      "5x4_3_1",
+      "4x4_2_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_0_2_4",
+    "id": "5x6_0_4",
+    "legacyId": "Rect_m1_5_0_2_4",
+    "tier": 7,
     "n": 7.5,
     "t": 2,
     "x": 3,
@@ -641,15 +705,17 @@
       4
     ],
     "nextNodes": [
-      "Lv8_e4_r3",
-      "Rect_m1_4_1_2_3"
+      "5x5_1_4",
+      "5x5_1_3"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_4_4_0",
+    "id": "7x4_4_0",
+    "legacyId": "Rect_m1_3_4_4_0",
+    "tier": 7,
     "n": 5.5,
     "t": 2,
     "x": 0,
@@ -661,15 +727,17 @@
       0
     ],
     "nextNodes": [
-      "Lv5_e2_c1",
-      "Rect_m1_3_3_3_1"
+      "5x4_3_1",
+      "6x4_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_8_0_7_0",
+    "id": "8x7_0_0",
+    "legacyId": "Rect_m1_8_0_7_0",
+    "tier": 15,
     "n": 7.5,
     "t": 0,
     "x": 0,
@@ -681,14 +749,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_7_1_6_1"
+      "8x7_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_1_6_1",
+    "id": "8x7_1_1",
+    "legacyId": "Rect_m1_7_1_6_1",
+    "tier": 13,
     "n": 7.5,
     "t": 1,
     "x": 1,
@@ -700,16 +770,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_6_2_5_2",
-      "Rect_m1_7_0_5_2",
-      "Rect_m1_6_2_6_0"
+      "8x7_2_2",
+      "7x7_0_2",
+      "8x6_2_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_2_5_2",
+    "id": "8x7_2_2",
+    "legacyId": "Rect_m1_6_2_5_2",
+    "tier": 11,
     "n": 7.5,
     "t": 2,
     "x": 1,
@@ -721,16 +793,18 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_5_3_4_3",
-      "Rect_m1_6_1_4_3",
-      "Rect_m1_5_3_5_1"
+      "8x7_3_3",
+      "7x7_1_3",
+      "8x6_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_0_5_2",
+    "id": "7x7_0_2",
+    "legacyId": "Rect_m1_7_0_5_2",
+    "tier": 12,
     "n": 7.0,
     "t": 1,
     "x": 0,
@@ -742,15 +816,17 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_6_1_4_3",
-      "Rect_m1_6_1_5_1"
+      "7x7_1_3",
+      "7x6_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_2_6_0",
+    "id": "8x6_2_0",
+    "legacyId": "Rect_m1_6_2_6_0",
+    "tier": 12,
     "n": 6.5,
     "t": 1,
     "x": 0,
@@ -762,15 +838,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_5_3_5_1",
-      "Rect_m1_6_1_5_1"
+      "8x6_3_1",
+      "7x6_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_3_4_3",
+    "id": "8x7_3_3",
+    "legacyId": "Rect_m1_5_3_4_3",
+    "tier": 9,
     "n": 7.5,
     "t": 3,
     "x": 1,
@@ -782,16 +860,18 @@
       3
     ],
     "nextNodes": [
-      "Lv8_e4_r1",
-      "Rect_m1_5_2_3_4",
-      "Rect_m1_4_4_4_2"
+      "7x7_3_4",
+      "7x7_2_4",
+      "8x6_4_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_1_4_3",
+    "id": "7x7_1_3",
+    "legacyId": "Rect_m1_6_1_4_3",
+    "tier": 10,
     "n": 7.5,
     "t": 2,
     "x": 2,
@@ -803,16 +883,18 @@
       3
     ],
     "nextNodes": [
-      "Rect_m1_5_2_3_4",
-      "Rect_m1_6_0_3_4",
-      "Rect_m1_5_2_4_2"
+      "7x7_2_4",
+      "6x7_0_4",
+      "7x6_2_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_3_5_1",
+    "id": "8x6_3_1",
+    "legacyId": "Rect_m1_5_3_5_1",
+    "tier": 10,
     "n": 6.5,
     "t": 2,
     "x": 0,
@@ -824,16 +906,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_4_4_4_2",
-      "Rect_m1_5_2_4_2",
-      "Rect_m1_4_4_5_0"
+      "8x6_4_2",
+      "7x6_2_2",
+      "8x5_4_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_2_3_4",
+    "id": "7x7_2_4",
+    "legacyId": "Rect_m1_5_2_3_4",
+    "tier": 8,
     "n": 7.5,
     "t": 3,
     "x": 2,
@@ -845,16 +929,18 @@
       4
     ],
     "nextNodes": [
-      "Lv8_e4_r2",
-      "Rect_m1_5_1_2_5",
-      "Rect_m1_4_3_3_3"
+      "6x6_2_4",
+      "6x7_1_5",
+      "7x6_3_3"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_4_4_2",
+    "id": "8x6_4_2",
+    "legacyId": "Rect_m1_4_4_4_2",
+    "tier": 8,
     "n": 6.5,
     "t": 3,
     "x": 0,
@@ -866,16 +952,18 @@
       2
     ],
     "nextNodes": [
-      "Lv6_e3_r0",
-      "Rect_m1_4_3_3_3",
-      "Rect_m1_3_4_4_1"
+      "6x6_3_3",
+      "7x6_3_3",
+      "7x5_4_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_0_3_4",
+    "id": "6x7_0_4",
+    "legacyId": "Rect_m1_6_0_3_4",
+    "tier": 9,
     "n": 6.5,
     "t": 2,
     "x": 0,
@@ -887,15 +975,17 @@
       4
     ],
     "nextNodes": [
-      "Rect_m1_5_1_2_5",
-      "Rect_m1_5_1_3_3"
+      "6x7_1_5",
+      "6x6_1_3"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_4_5_0",
+    "id": "8x5_4_0",
+    "legacyId": "Rect_m1_4_4_5_0",
+    "tier": 9,
     "n": 6.5,
     "t": 2,
     "x": 0,
@@ -907,15 +997,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_3_4_4_1",
-      "Rect_m1_4_3_4_1"
+      "7x5_4_1",
+      "7x5_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_1_2_5",
+    "id": "6x7_1_5",
+    "legacyId": "Rect_m1_5_1_2_5",
+    "tier": 7,
     "n": 8.5,
     "t": 3,
     "x": 3,
@@ -927,16 +1019,18 @@
       5
     ],
     "nextNodes": [
-      "Lv8_e4_r3",
-      "Rect_m1_5_0_1_5",
-      "Lv8_e4_r2"
+      "5x5_1_4",
+      "5x6_0_5",
+      "6x6_2_4"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_4_4_1",
+    "id": "7x5_4_1",
+    "legacyId": "Rect_m1_3_4_4_1",
+    "tier": 7,
     "n": 6.5,
     "t": 3,
     "x": 0,
@@ -948,16 +1042,18 @@
       1
     ],
     "nextNodes": [
-      "Lv6_e3_c1",
-      "Rect_m1_3_3_3_2",
-      "Lv6_e2_c2"
+      "5x5_3_2",
+      "6x5_3_2",
+      "6x4_4_0"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_0_1_5",
+    "id": "5x6_0_5",
+    "legacyId": "Rect_m1_5_0_1_5",
+    "tier": 6,
     "n": 5.5,
     "t": 3,
     "x": 0,
@@ -969,15 +1065,17 @@
       5
     ],
     "nextNodes": [
-      "Lv8_e4_r4",
-      "Lv8_e4_r3"
+      "4x4_0_4",
+      "5x5_1_4"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_9_0_8_0",
+    "id": "9x8_0_0",
+    "legacyId": "Rect_m1_9_0_8_0",
+    "tier": 17,
     "n": 8.5,
     "t": 0,
     "x": 0,
@@ -989,14 +1087,16 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_8_1_7_1"
+      "9x8_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_8_1_7_1",
+    "id": "9x8_1_1",
+    "legacyId": "Rect_m1_8_1_7_1",
+    "tier": 15,
     "n": 8.5,
     "t": 1,
     "x": 0,
@@ -1008,16 +1108,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_7_2_6_2",
-      "Rect_m1_8_0_6_2",
-      "Rect_m1_7_2_7_0"
+      "9x8_2_2",
+      "8x8_0_2",
+      "9x7_2_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_2_6_2",
+    "id": "9x8_2_2",
+    "legacyId": "Rect_m1_7_2_6_2",
+    "tier": 13,
     "n": 8.5,
     "t": 2,
     "x": 1,
@@ -1029,16 +1131,18 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_6_3_5_3",
-      "Rect_m1_7_1_5_3",
-      "Rect_m1_6_3_6_1"
+      "9x8_3_3",
+      "8x8_1_3",
+      "9x7_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_8_0_6_2",
+    "id": "8x8_0_2",
+    "legacyId": "Rect_m1_8_0_6_2",
+    "tier": 14,
     "n": 8.0,
     "t": 1,
     "x": 0,
@@ -1050,15 +1154,17 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_7_1_5_3",
-      "Rect_m1_7_1_6_1"
+      "8x8_1_3",
+      "8x7_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_2_7_0",
+    "id": "9x7_2_0",
+    "legacyId": "Rect_m1_7_2_7_0",
+    "tier": 14,
     "n": 7.5,
     "t": 1,
     "x": 0,
@@ -1070,15 +1176,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_6_3_6_1",
-      "Rect_m1_7_1_6_1"
+      "9x7_3_1",
+      "8x7_1_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_3_5_3",
+    "id": "9x8_3_3",
+    "legacyId": "Rect_m1_6_3_5_3",
+    "tier": 11,
     "n": 8.5,
     "t": 3,
     "x": 1,
@@ -1090,16 +1198,18 @@
       3
     ],
     "nextNodes": [
-      "Rect_m1_5_4_4_4",
-      "Rect_m1_6_2_4_4",
-      "Rect_m1_5_4_5_2"
+      "9x8_4_4",
+      "8x8_2_4",
+      "9x7_4_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_1_5_3",
+    "id": "8x8_1_3",
+    "legacyId": "Rect_m1_7_1_5_3",
+    "tier": 12,
     "n": 8.0,
     "t": 2,
     "x": 0,
@@ -1111,16 +1221,18 @@
       3
     ],
     "nextNodes": [
-      "Rect_m1_6_2_4_4",
-      "Rect_m1_7_0_4_4",
-      "Rect_m1_6_2_5_2"
+      "8x8_2_4",
+      "7x8_0_4",
+      "8x7_2_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_3_6_1",
+    "id": "9x7_3_1",
+    "legacyId": "Rect_m1_6_3_6_1",
+    "tier": 12,
     "n": 7.5,
     "t": 2,
     "x": 0,
@@ -1132,16 +1244,18 @@
       1
     ],
     "nextNodes": [
-      "Rect_m1_5_4_5_2",
-      "Rect_m1_6_2_5_2",
-      "Rect_m1_5_4_6_0"
+      "9x7_4_2",
+      "8x7_2_2",
+      "9x6_4_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_4_4_4",
+    "id": "9x8_4_4",
+    "legacyId": "Rect_m1_5_4_4_4",
+    "tier": 9,
     "n": 8.5,
     "t": 4,
     "x": 1,
@@ -1153,15 +1267,17 @@
       4
     ],
     "nextNodes": [
-      "Rect_m1_5_3_3_5",
-      "Rect_m1_4_4_4_3"
+      "8x8_3_5",
+      "8x7_4_3"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_2_4_4",
+    "id": "8x8_2_4",
+    "legacyId": "Rect_m1_6_2_4_4",
+    "tier": 10,
     "n": 8.5,
     "t": 3,
     "x": 2,
@@ -1173,16 +1289,18 @@
       4
     ],
     "nextNodes": [
-      "Rect_m1_5_3_3_5",
-      "Rect_m1_6_1_3_5",
-      "Rect_m1_5_3_4_3"
+      "8x8_3_5",
+      "7x8_1_5",
+      "8x7_3_3"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_4_5_2",
+    "id": "9x7_4_2",
+    "legacyId": "Rect_m1_5_4_5_2",
+    "tier": 10,
     "n": 7.5,
     "t": 3,
     "x": 0,
@@ -1194,16 +1312,18 @@
       2
     ],
     "nextNodes": [
-      "Rect_m1_4_4_4_3",
-      "Rect_m1_5_3_4_3",
-      "Rect_m1_4_5_5_1"
+      "8x7_4_3",
+      "8x7_3_3",
+      "9x6_5_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_7_0_4_4",
+    "id": "7x8_0_4",
+    "legacyId": "Rect_m1_7_0_4_4",
+    "tier": 11,
     "n": 7.5,
     "t": 2,
     "x": 0,
@@ -1215,15 +1335,17 @@
       4
     ],
     "nextNodes": [
-      "Rect_m1_6_1_3_5",
-      "Rect_m1_6_1_4_3"
+      "7x8_1_5",
+      "7x7_1_3"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_4_6_0",
+    "id": "9x6_4_0",
+    "legacyId": "Rect_m1_5_4_6_0",
+    "tier": 11,
     "n": 7.5,
     "t": 2,
     "x": 0,
@@ -1235,15 +1357,17 @@
       0
     ],
     "nextNodes": [
-      "Rect_m1_4_5_5_1",
-      "Rect_m1_5_3_5_1"
+      "9x6_5_1",
+      "8x6_3_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_3_3_5",
+    "id": "8x8_3_5",
+    "legacyId": "Rect_m1_5_3_3_5",
+    "tier": 8,
     "n": 8.5,
     "t": 4,
     "x": 2,
@@ -1255,15 +1379,17 @@
       5
     ],
     "nextNodes": [
-      "Rect_m1_5_2_2_5",
-      "Lv8_e4_r1"
+      "7x7_2_5",
+      "7x7_3_4"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_4_4_3",
+    "id": "8x7_4_3",
+    "legacyId": "Rect_m1_4_4_4_3",
+    "tier": 8,
     "n": 7.5,
     "t": 4,
     "x": 0,
@@ -1275,15 +1401,17 @@
       3
     ],
     "nextNodes": [
-      "Lv8_e4_r1",
-      "Lv7_e3_c1"
+      "7x7_3_4",
+      "7x6_4_2"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_1_3_5",
+    "id": "7x8_1_5",
+    "legacyId": "Rect_m1_6_1_3_5",
+    "tier": 9,
     "n": 7.5,
     "t": 3,
     "x": 0,
@@ -1295,16 +1423,18 @@
       5
     ],
     "nextNodes": [
-      "Rect_m1_5_2_2_5",
-      "Rect_m1_6_0_2_6",
-      "Rect_m1_5_2_3_4"
+      "7x7_2_5",
+      "6x8_0_6",
+      "7x7_2_4"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_4_5_5_1",
+    "id": "9x6_5_1",
+    "legacyId": "Rect_m1_4_5_5_1",
+    "tier": 9,
     "n": 7.5,
     "t": 3,
     "x": 0,
@@ -1316,16 +1446,18 @@
       1
     ],
     "nextNodes": [
-      "Lv7_e3_c1",
-      "Rect_m1_4_4_4_2",
-      "Rect_m1_3_5_5_0"
+      "7x6_4_2",
+      "8x6_4_2",
+      "8x5_5_0"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_2_2_5",
+    "id": "7x7_2_5",
+    "legacyId": "Rect_m1_5_2_2_5",
+    "tier": 7,
     "n": 8.5,
     "t": 4,
     "x": 3,
@@ -1337,15 +1469,17 @@
       5
     ],
     "nextNodes": [
-      "Rect_m1_5_1_1_5",
-      "Lv8_e4_r2"
+      "6x6_1_5",
+      "6x6_2_4"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_6_0_2_6",
+    "id": "6x8_0_6",
+    "legacyId": "Rect_m1_6_0_2_6",
+    "tier": 8,
     "n": 7.0,
     "t": 3,
     "x": 0,
@@ -1357,15 +1491,17 @@
       6
     ],
     "nextNodes": [
-      "Rect_m1_5_1_1_5",
-      "Rect_m1_5_1_2_5"
+      "6x6_1_5",
+      "6x7_1_5"
     ],
     "isWin": false,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_3_5_5_0",
+    "id": "8x5_5_0",
+    "legacyId": "Rect_m1_3_5_5_0",
+    "tier": 8,
     "n": 7.5,
     "t": 3,
     "x": 0,
@@ -1377,15 +1513,17 @@
       0
     ],
     "nextNodes": [
-      "Lv7_e3_c2",
-      "Rect_m1_3_4_4_1"
+      "6x5_4_1",
+      "7x5_4_1"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_1_1_5",
+    "id": "6x6_1_5",
+    "legacyId": "Rect_m1_5_1_1_5",
+    "tier": 6,
     "n": 6.0,
     "t": 4,
     "x": 0,
@@ -1397,15 +1535,17 @@
       5
     ],
     "nextNodes": [
-      "Rect_m1_5_0_0_5",
-      "Lv8_e4_r3"
+      "5x5_0_5",
+      "5x5_1_4"
     ],
     "isWin": true,
     "grundy": null,
     "nodeType": "rect_m1"
   },
   {
-    "id": "Rect_m1_5_0_0_5",
+    "id": "5x5_0_5",
+    "legacyId": "Rect_m1_5_0_0_5",
+    "tier": 5,
     "n": 5.0,
     "t": 4,
     "x": 0,
@@ -1417,7 +1557,7 @@
       5
     ],
     "nextNodes": [
-      "Lv8_e4_r4"
+      "4x4_0_4"
     ],
     "isWin": false,
     "grundy": null,

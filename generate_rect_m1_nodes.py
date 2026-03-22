@@ -18,6 +18,11 @@ def matrix_to_flat(M):
     return [M[0][0], M[0][1], M[1][0], M[1][1]]
 
 
+def matrix_to_id(R0, R1, C0, C1):
+    """New universal ID: {rows}x{cols}_{R1}_{C1}"""
+    return f"{R0+R1}x{C0+C1}_{R1}_{C1}"
+
+
 def find_position(flat, square_nodes_by_matrix):
     """
     Position by bracketing square nodes with same R0, C0, sorted by R1+C1.
@@ -88,7 +93,6 @@ def generate_rect_m1(max_n=8):
     known_by_id = {**square_nodes_by_id, **p1_nodes_by_id}
 
     rect_nodes = {}   # key: (R0,R1,C0,C1) -> node dict
-    rect_by_id = {}
 
     for n in range(1, max_n + 1):
         start_matrix = [n + 1, 0, n, 0]
@@ -103,9 +107,12 @@ def generate_rect_m1(max_n=8):
 
         # Build starting node
         n_pos, x_pos, y_pos = find_position(start_matrix, square_nodes_by_matrix)
-        node_id = f"Rect_m1_{start_matrix[0]}_{start_matrix[1]}_{start_matrix[2]}_{start_matrix[3]}"
+        R0, R1, C0, C1 = start_matrix
+        node_id = matrix_to_id(R0, R1, C0, C1)
         rect_nodes[start_key] = {
             "id": node_id,
+            "legacyId": f"Rect_m1_{R0}_{R1}_{C0}_{C1}",
+            "tier": R0 + C0,
             "n": n_pos,
             "t": 0,
             "x": x_pos,
@@ -116,7 +123,6 @@ def generate_rect_m1(max_n=8):
             "grundy": None,
             "nodeType": "rect_m1"
         }
-        rect_by_id[node_id] = rect_nodes[start_key]
 
         queue = deque([(start_matrix, 0)])
         visited = {start_key}
@@ -169,9 +175,12 @@ def generate_rect_m1(max_n=8):
                 else:
                     child_flat_list = list(child_flat)
                     n_pos2, x_pos2, y_pos2 = find_position(child_flat_list, square_nodes_by_matrix)
-                    child_id = f"Rect_m1_{child_flat[0]}_{child_flat[1]}_{child_flat[2]}_{child_flat[3]}"
+                    cR0, cR1, cC0, cC1 = child_flat
+                    child_id = matrix_to_id(cR0, cR1, cC0, cC1)
                     rect_nodes[child_key] = {
                         "id": child_id,
+                        "legacyId": f"Rect_m1_{cR0}_{cR1}_{cC0}_{cC1}",
+                        "tier": cR0 + cC0,
                         "n": n_pos2,
                         "t": child_e_depth,
                         "x": x_pos2,
@@ -182,7 +191,6 @@ def generate_rect_m1(max_n=8):
                         "grundy": None,
                         "nodeType": "rect_m1"
                     }
-                    rect_by_id[child_id] = rect_nodes[child_key]
 
                 if current_key in rect_nodes:
                     if child_id not in rect_nodes[current_key]["nextNodes"]:

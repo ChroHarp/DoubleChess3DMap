@@ -9,7 +9,7 @@ interface EdgeLineProps {
 }
 
 export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
-    const { selectedPath, activeLevel, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
+    const { selectedPath, activeTier, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
 
     const startIsP1 = startNode.nodeType === 'rect_p1';
     const endIsP1 = endNode.nodeType === 'rect_p1';
@@ -27,44 +27,39 @@ export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const endSquareHidden = !endIsRect && !showSquareNodes && !rectReferencedSquareIds.has(endNode.id);
     if (startSquareHidden || endSquareHidden) return null;
 
-    const isHiddenByLevel = activeLevel !== null;
-
     // If path is selected, show only edges between selected nodes
     const isSelectedEdge = selectedPath.includes(startNode.id) && selectedPath.includes(endNode.id);
     const isDimmed = selectedPath.length > 0 && !isSelectedEdge;
 
-    // Complex visibility rules (must match NodeMesh, supports fractional n)
-    if (isHiddenByLevel && activeLevel !== null) {
-        const checkHidden = (n: number, t: number) => {
-            const nFloor = Math.floor(n);
-            const nCeil = Math.ceil(n);
+    // Tier-based visibility (matches NodeMesh logic)
+    if (activeTier !== null) {
+        const checkHidden = (node: ChessNode) => {
             if (showBelowLevel) {
-                return n > activeLevel;
+                return node.tier > activeTier;
             }
-            const isN = nFloor === activeLevel || nCeil === activeLevel;
-            const isNMinus1 = nFloor === activeLevel - 1 || nCeil === activeLevel - 1;
-            let isNMinus2MaxT = false;
-            if (activeLevel % 2 === 0) {
-                const targetN = activeLevel - 2;
-                const maxT = Math.floor(targetN / 2);
-                isNMinus2MaxT = ((nFloor === targetN || nCeil === targetN) && t === maxT);
+            const isCurrentTier = node.tier === activeTier;
+            const isPrevTier = node.tier === activeTier - 1;
+            let isTwoBelow = false;
+            if (activeTier % 2 === 0) {
+                const targetTier = activeTier - 2;
+                const maxT = Math.floor(targetTier / 2);
+                isTwoBelow = node.tier === targetTier && node.t === maxT;
             }
-            return !(isN || isNMinus1 || isNMinus2MaxT);
+            return !(isCurrentTier || isPrevTier || isTwoBelow);
         };
 
-        if (checkHidden(startNode.n, startNode.t) || checkHidden(endNode.n, endNode.t)) return null;
+        if (checkHidden(startNode) || checkHidden(endNode)) return null;
     }
 
-    const isLevelDrop = startNode.n !== endNode.n;
+    // Highlight tier-crossing edges
+    const isTierDrop = startNode.tier !== endNode.tier;
 
-    // Highlight Level drop: yellow (#f59e0b) width 2
-    // Normal line: slate (#cbd5e1) transparent 0.3 width 1
     const highlightColor = new THREE.Color('#f59e0b');
     const normalColor = new THREE.Color('#cbd5e1');
 
-    const color = isLevelDrop ? highlightColor : normalColor;
-    const lineWidth = isLevelDrop ? 2 : 1;
-    const opacity = isDimmed ? 0.05 : (isLevelDrop ? 0.8 : 0.3);
+    const color = isTierDrop ? highlightColor : normalColor;
+    const lineWidth = isTierDrop ? 2 : 1;
+    const opacity = isDimmed ? 0.05 : (isTierDrop ? 0.8 : 0.3);
 
     const [startX, startY, startZ] = getNodePosition(startNode.id);
     const [endX, endY, endZ] = getNodePosition(endNode.id);

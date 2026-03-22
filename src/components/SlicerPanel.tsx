@@ -2,14 +2,14 @@ import { useStore } from '../store/useStore';
 import { Layers, Box, CreditCard, Axis3D } from 'lucide-react';
 
 export const SlicerPanel = () => {
-    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, showRectNodes, setShowRectNodes, showM1Nodes, setShowM1Nodes, showSquareNodes, setShowSquareNodes, viewMode, setViewMode, coordMode, setCoordMode } = useStore();
+    const { activeTier, maxTier, setActiveTier, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, showRectNodes, setShowRectNodes, showM1Nodes, setShowM1Nodes, showSquareNodes, setShowSquareNodes, viewMode, setViewMode, coordMode, setCoordMode } = useStore();
 
     return (
         <div className="absolute top-4 right-4 bg-slate-800/90 text-slate-200 p-4 rounded-xl border border-slate-700 shadow-2xl backdrop-blur-md w-72 z-10 transition-all">
             <div className="flex items-center justify-between mb-4 border-b border-slate-700 pb-3">
                 <div className="flex items-center gap-2">
                     <Layers className="w-5 h-5 text-emerald-400" />
-                    <h2 className="font-semibold text-lg">Level Slicer</h2>
+                    <h2 className="font-semibold text-lg">Tier Slicer</h2>
                 </div>
                 <div className="flex bg-slate-900 rounded-lg p-1 border border-slate-700 gap-0.5">
                     <button
@@ -58,22 +58,22 @@ export const SlicerPanel = () => {
                 <div className="flex justify-between items-center mb-1">
                     <span className="text-sm text-slate-400">Current View</span>
                     <span className="bg-slate-900 px-2 py-1 rounded text-xs font-mono font-bold text-emerald-400 border border-slate-700">
-                        {activeLevel === null ? 'All Levels' : `Lv ${activeLevel}${activeLevel < maxLevel ? ` & ${activeLevel + 1}` : ''}`}
+                        {activeTier === null ? 'All Tiers' : `Tier ${activeTier}${activeTier < maxTier ? ` & ${activeTier + 1}` : ''}`}
                     </span>
                 </div>
 
                 <input
                     type="range"
                     min="0"
-                    max={maxLevel}
+                    max={maxTier}
                     step="1"
-                    value={activeLevel === null ? maxLevel + 1 : activeLevel}
+                    value={activeTier === null ? maxTier + 1 : activeTier}
                     onChange={(e) => {
                         const val = parseInt(e.target.value);
-                        if (val > maxLevel) {
-                            setActiveLevel(null);
+                        if (val > maxTier) {
+                            setActiveTier(null);
                         } else {
-                            setActiveLevel(val);
+                            setActiveTier(val);
                         }
                     }}
                     className="w-full accent-emerald-500 h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
@@ -81,7 +81,7 @@ export const SlicerPanel = () => {
 
                 <div className="flex justify-between text-xs text-slate-500 font-mono px-1 pb-2">
                     <span>0</span>
-                    <span>{maxLevel}</span>
+                    <span>{maxTier}</span>
                     <span>All</span>
                 </div>
 

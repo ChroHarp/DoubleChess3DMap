@@ -7,7 +7,7 @@ import coordsOriginal from '../coords_original.json';
 import coordsUnified from '../coords_unified.json';
 import coordsTopological from '../coords_topological.json';
 
-const squareNodes = (rawData as ChessNode[]).map(n => ({ ...n, nodeType: 'square' as const }));
+const squareNodes = rawData as ChessNode[];
 const rectP1Nodes = rawRectP1Data as ChessNode[];
 const rectM1Nodes = rawRectM1Data as ChessNode[];
 const nodesData = [...squareNodes, ...rectP1Nodes, ...rectM1Nodes];
@@ -25,7 +25,7 @@ const coordSets: Record<string, Record<string, [number, number, number]>> = {
 
 interface DefaultState {
     nodes: ChessNode[];
-    activeLevel: number | null;
+    activeTier: number | null;
     showBelowLevel: boolean;
     showPathCounts: boolean;
     showGrundy: boolean;
@@ -36,13 +36,13 @@ interface DefaultState {
     coordMode: string;
     hoveredNode: string | null;
     selectedPath: string[]; // List of node IDs in the selected path
-    maxLevel: number;
+    maxTier: number;
     cameraResetSignal: number;
     getNodePosition: (nodeId: string) => [number, number, number];
 }
 
 interface ActionState {
-    setActiveLevel: (level: number | null) => void;
+    setActiveTier: (tier: number | null) => void;
     setShowBelowLevel: (show: boolean) => void;
     setShowPathCounts: (show: boolean) => void;
     setShowGrundy: (show: boolean) => void;
@@ -58,7 +58,7 @@ interface ActionState {
 
 export const useStore = create<DefaultState & ActionState>((set, get) => ({
     nodes: nodesData,
-    activeLevel: Math.ceil(Math.max(...nodesData.map((n) => n.n))),
+    activeTier: Math.max(...nodesData.map((n) => n.tier)),
     showBelowLevel: false,
     showPathCounts: true,
     showGrundy: true,
@@ -69,7 +69,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     coordMode: 'original',
     hoveredNode: null,
     selectedPath: [],
-    maxLevel: Math.ceil(Math.max(...nodesData.map((n) => n.n))),
+    maxTier: Math.max(...nodesData.map((n) => n.tier)),
     cameraResetSignal: 0,
     getNodePosition: (nodeId: string) => {
         const mode = get().coordMode;
@@ -77,7 +77,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
         return coords[nodeId] || [0, 0, 0];
     },
 
-    setActiveLevel: (level) => set({ activeLevel: level }),
+    setActiveTier: (tier) => set({ activeTier: tier }),
     setShowBelowLevel: (show) => set({ showBelowLevel: show }),
     setShowPathCounts: (show) => set({ showPathCounts: show }),
     setShowGrundy: (show) => set({ showGrundy: show }),
