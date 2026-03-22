@@ -1,5 +1,5 @@
 import { Line } from '@react-three/drei';
-import { useStore } from '../store/useStore';
+import { useStore, rectReferencedSquareIds } from '../store/useStore';
 import type { ChessNode } from '../types';
 import * as THREE from 'three';
 
@@ -9,7 +9,23 @@ interface EdgeLineProps {
 }
 
 export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
-    const { selectedPath, activeLevel, showBelowLevel } = useStore();
+    const { selectedPath, activeLevel, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
+
+    const startIsP1 = startNode.nodeType === 'rect_p1';
+    const endIsP1 = endNode.nodeType === 'rect_p1';
+    const startIsM1 = startNode.nodeType === 'rect_m1';
+    const endIsM1 = endNode.nodeType === 'rect_m1';
+
+    // Hide edges involving hidden rect nodes
+    if (!showRectNodes && (startIsP1 || endIsP1)) return null;
+    if (!showM1Nodes && (startIsM1 || endIsM1)) return null;
+
+    // Hide edges where a square endpoint is hidden (not a rect-referenced endpoint)
+    const startIsRect = startIsP1 || startIsM1;
+    const endIsRect = endIsP1 || endIsM1;
+    const startSquareHidden = !startIsRect && !showSquareNodes && !rectReferencedSquareIds.has(startNode.id);
+    const endSquareHidden = !endIsRect && !showSquareNodes && !rectReferencedSquareIds.has(endNode.id);
+    if (startSquareHidden || endSquareHidden) return null;
 
     const isHiddenByLevel = activeLevel !== null;
 
@@ -17,36 +33,26 @@ export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const isSelectedEdge = selectedPath.includes(startNode.id) && selectedPath.includes(endNode.id);
     const isDimmed = selectedPath.length > 0 && !isSelectedEdge;
 
-    // Complex visibility rules (must match NodeMesh)
+    // Complex visibility rules (must match NodeMesh, supports fractional n)
     if (isHiddenByLevel && activeLevel !== null) {
-        let isStartHidden = false;
-        let isEndHidden = false;
-
-        if (showBelowLevel) {
-            isStartHidden = startNode.n > activeLevel;
-            isEndHidden = endNode.n > activeLevel;
-        } else {
-            const isStartN = startNode.n === activeLevel;
-            const isStartNMinus1 = startNode.n === activeLevel - 1;
-            let isStartNMinus2MaxT = false;
-
-            const isEndN = endNode.n === activeLevel;
-            const isEndNMinus1 = endNode.n === activeLevel - 1;
-            let isEndNMinus2MaxT = false;
-
+        const checkHidden = (n: number, t: number) => {
+            const nFloor = Math.floor(n);
+            const nCeil = Math.ceil(n);
+            if (showBelowLevel) {
+                return n > activeLevel;
+            }
+            const isN = nFloor === activeLevel || nCeil === activeLevel;
+            const isNMinus1 = nFloor === activeLevel - 1 || nCeil === activeLevel - 1;
+            let isNMinus2MaxT = false;
             if (activeLevel % 2 === 0) {
                 const targetN = activeLevel - 2;
                 const maxT = Math.floor(targetN / 2);
-                isStartNMinus2MaxT = (startNode.n === targetN && startNode.t === maxT);
-                isEndNMinus2MaxT = (endNode.n === targetN && endNode.t === maxT);
+                isNMinus2MaxT = ((nFloor === targetN || nCeil === targetN) && t === maxT);
             }
+            return !(isN || isNMinus1 || isNMinus2MaxT);
+        };
 
-            isStartHidden = !(isStartN || isStartNMinus1 || isStartNMinus2MaxT);
-            isEndHidden = !(isEndN || isEndNMinus1 || isEndNMinus2MaxT);
-        }
-
-        // Hide edge if either the starting node or ending node is hidden
-        if (isStartHidden || isEndHidden) return null;
+        if (checkHidden(startNode.n, startNode.t) || checkHidden(endNode.n, endNode.t)) return null;
     }
 
     const isLevelDrop = startNode.n !== endNode.n;
@@ -60,14 +66,8 @@ export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const lineWidth = isLevelDrop ? 2 : 1;
     const opacity = isDimmed ? 0.05 : (isLevelDrop ? 0.8 : 0.3);
 
-    // Coordinate mapping identical to NodeMesh
-    const startX = (startNode.x > 0 ? startNode.x : -startNode.y) * 3;
-    const startY = startNode.t * -3;
-    const startZ = startNode.n * 5;
-
-    const endX = (endNode.x > 0 ? endNode.x : -endNode.y) * 3;
-    const endY = endNode.t * -3;
-    const endZ = endNode.n * 5;
+    const [startX, startY, startZ] = getNodePosition(startNode.id);
+    const [endX, endY, endZ] = getNodePosition(endNode.id);
 
     const startVec = new THREE.Vector3(startX, startY, startZ);
     const endVec = new THREE.Vector3(endX, endY, endZ);
