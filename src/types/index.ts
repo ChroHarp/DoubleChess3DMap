@@ -8,5 +8,5 @@ export interface ChessNode {
     matrix: [number, number, number, number]; // [R0, R1, C0, C1]
     nextNodes: string[]; // for drawing Edges
     grundy: number | null; // DP/Grundy SG value
-    nodeType?: 'square' | 'rect_p1' | 'rect_m1';
+    nodeType?: 'square' | 'rect_p1' | 'rect_m1' | 'noadj_square' | 'noadj_p1' | 'noadj_m1';
 }

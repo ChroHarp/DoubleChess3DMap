@@ -2,7 +2,7 @@ import { useStore } from '../store/useStore';
 import { Layers, Box, CreditCard, Axis3D } from 'lucide-react';
 
 export const SlicerPanel = () => {
-    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, showRectNodes, setShowRectNodes, showM1Nodes, setShowM1Nodes, showSquareNodes, setShowSquareNodes, viewMode, setViewMode, coordMode, setCoordMode } = useStore();
+    const { activeLevel, maxLevel, setActiveLevel, showBelowLevel, setShowBelowLevel, showPathCounts, setShowPathCounts, showGrundy, setShowGrundy, showRectNodes, setShowRectNodes, showM1Nodes, setShowM1Nodes, showSquareNodes, setShowSquareNodes, noAdjMode, setNoAdjMode, viewMode, setViewMode, coordMode, setCoordMode } = useStore();
 
     return (
         <div className="absolute top-4 right-4 bg-slate-800/90 text-slate-200 p-4 rounded-xl border border-slate-700 shadow-2xl backdrop-blur-md w-72 z-10 transition-all">
@@ -144,6 +144,18 @@ export const SlicerPanel = () => {
                     />
                     顯示方形節點（隱藏時保留矩形端點）
                 </label>
+
+                <div className="pt-3 border-t border-slate-700/50">
+                    <button
+                        onClick={() => setNoAdjMode(!noAdjMode)}
+                        className={`w-full py-2 px-3 rounded-lg text-sm font-semibold transition-all border ${noAdjMode ? 'bg-violet-700 border-violet-500 text-violet-100' : 'bg-slate-700 border-slate-600 text-slate-300 hover:bg-slate-600'}`}
+                    >
+                        {noAdjMode ? '✓ NoAdj 模式（無限制）' : 'NoAdj 模式（無限制）'}
+                    </button>
+                    {noAdjMode && (
+                        <p className="text-[10px] text-violet-300 mt-1 px-1">移除 R1≤C0, C1≤R0 限制，終點為 [k,0,0,0] / [0,k,0,k] 等</p>
+                    )}
+                </div>
 
                 <div className="mt-4 pt-4 border-t border-slate-700/50 text-xs text-slate-400 space-y-2">
                     <p className="flex items-center gap-2">

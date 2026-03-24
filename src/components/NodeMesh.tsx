@@ -24,6 +24,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
         showRectNodes,
         showM1Nodes,
         showSquareNodes,
+        noAdjMode,
         viewMode,
         getNodePosition
     } = useStore();
@@ -42,8 +43,8 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     // 1. By default, show activeLevel (n) and activeLevel - 1 (n-1)
     // 2. If activeLevel is even, ALSO show activeLevel - 2 (n-2) BUT ONLY where t is maximum (t == (n-2)/2)
     // 3. If showBelowLevel is true, show everything below activeLevel
-    const isP1 = node.nodeType === 'rect_p1';
-    const isM1 = node.nodeType === 'rect_m1';
+    const isP1 = node.nodeType === 'rect_p1' || node.nodeType === 'noadj_p1';
+    const isM1 = node.nodeType === 'rect_m1' || node.nodeType === 'noadj_m1';
     const isRect = isP1 || isM1;
     const isHiddenByRect = (isP1 && !showRectNodes) || (isM1 && !showM1Nodes);
     // Hide square nodes when showSquareNodes is off, unless they are endpoints of rect edges
@@ -74,8 +75,10 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
 
     const [x_pos, y_pos, z_pos] = getNodePosition(node.id);
 
-    // Identify [[0,0],[0,0]] ending point
-    const isEndNode = node.matrix[0] === 0 && node.matrix[1] === 0 && node.matrix[2] === 0 && node.matrix[3] === 0;
+    // Identify ending point: [0,0,0,0] normally; in noAdj mode, any terminal node (no moves)
+    const isEndNode = noAdjMode
+        ? node.nextNodes.length === 0
+        : node.matrix[0] === 0 && node.matrix[1] === 0 && node.matrix[2] === 0 && node.matrix[3] === 0;
 
     // Identify starting points: R1=0 and C1=0 (excluding the end node)
     // For original nodes, this is [[n,0],[n,0]], for rectangular nodes this is [[n,0],[n+1,0]] or vice-versa

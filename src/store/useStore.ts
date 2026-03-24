@@ -3,6 +3,9 @@ import type { ChessNode } from '../types';
 import rawData from '../data.json';
 import rawRectP1Data from '../rect_p1_data.json';
 import rawRectM1Data from '../rect_m1_data.json';
+import rawNoAdjData from '../noadj_data.json';
+import rawNoAdjP1Data from '../noadj_rect_p1_data.json';
+import rawNoAdjM1Data from '../noadj_rect_m1_data.json';
 import coordsOriginal from '../coords_original.json';
 import coordsUnified from '../coords_unified.json';
 import coordsTopological from '../coords_topological.json';
@@ -11,6 +14,11 @@ const squareNodes = (rawData as ChessNode[]).map(n => ({ ...n, nodeType: 'square
 const rectP1Nodes = rawRectP1Data as ChessNode[];
 const rectM1Nodes = rawRectM1Data as ChessNode[];
 const nodesData = [...squareNodes, ...rectP1Nodes, ...rectM1Nodes];
+
+const noAdjSquareNodes = (rawNoAdjData as ChessNode[]).map(n => ({ ...n, nodeType: 'noadj_square' as const }));
+const noAdjP1Nodes = (rawNoAdjP1Data as ChessNode[]).map(n => ({ ...n, nodeType: 'noadj_p1' as const }));
+const noAdjM1Nodes = (rawNoAdjM1Data as ChessNode[]).map(n => ({ ...n, nodeType: 'noadj_m1' as const }));
+const noAdjNodesData = [...noAdjSquareNodes, ...noAdjP1Nodes, ...noAdjM1Nodes];
 
 // Pre-compute: square node IDs that are referenced by any rect nextNodes
 export const rectReferencedSquareIds = new Set<string>(
@@ -32,6 +40,7 @@ interface DefaultState {
     showRectNodes: boolean;
     showM1Nodes: boolean;
     showSquareNodes: boolean;
+    noAdjMode: boolean;
     viewMode: 'sphere' | 'card';
     coordMode: string;
     hoveredNode: string | null;
@@ -49,6 +58,7 @@ interface ActionState {
     setShowRectNodes: (show: boolean) => void;
     setShowM1Nodes: (show: boolean) => void;
     setShowSquareNodes: (show: boolean) => void;
+    setNoAdjMode: (mode: boolean) => void;
     setViewMode: (mode: 'sphere' | 'card') => void;
     setCoordMode: (mode: string) => void;
     setHoveredNode: (nodeId: string | null) => void;
@@ -65,6 +75,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     showRectNodes: true,
     showM1Nodes: true,
     showSquareNodes: true,
+    noAdjMode: false,
     viewMode: 'card',
     coordMode: 'original',
     hoveredNode: null,
@@ -84,6 +95,17 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     setShowRectNodes: (show) => set({ showRectNodes: show }),
     setShowM1Nodes: (show) => set({ showM1Nodes: show }),
     setShowSquareNodes: (show) => set({ showSquareNodes: show }),
+    setNoAdjMode: (mode) => set((state) => {
+        const nextNodes = mode ? noAdjNodesData : nodesData;
+        const newMaxLevel = Math.ceil(Math.max(...nextNodes.map((n) => n.n)));
+        return {
+            noAdjMode: mode,
+            nodes: nextNodes,
+            maxLevel: newMaxLevel,
+            activeLevel: newMaxLevel,
+            selectedPath: [],
+        };
+    }),
     setViewMode: (mode) => set({ viewMode: mode }),
     setCoordMode: (mode) => set({ coordMode: mode }),
     setHoveredNode: (nodeId) => set({ hoveredNode: nodeId }),
