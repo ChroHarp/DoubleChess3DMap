@@ -17,7 +17,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
         setHoveredNode,
         selectedPath,
         setSelectedNode,
-        activeLevel,
+        activeTier,
         showBelowLevel,
         showPathCounts,
         showGrundy,
@@ -31,43 +31,31 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     const isHovered = hoveredNode === node.id;
     const isSelected = selectedPath.includes(node.id);
 
-    // Highlighting logic:
-    // If a path is selected (length > 0), only selected nodes are fully opaque.
-    // Others are dimmed.
-    // If activeLevel is set, hide nodes not in that level.
-    // But Path Tracing takes precedence if we want to trace across levels, 
-    // If activeLevel is set, hide nodes not in that level or the level exactly above it (n+1)
-    // Note: Node tree grows downward, so n=0 is leaf, n=8 is root. Below means n <= activeLevel.
-    // Complex visibility rules:
-    // 1. By default, show activeLevel (n) and activeLevel - 1 (n-1)
-    // 2. If activeLevel is even, ALSO show activeLevel - 2 (n-2) BUT ONLY where t is maximum (t == (n-2)/2)
-    // 3. If showBelowLevel is true, show everything below activeLevel
     const isP1 = node.nodeType === 'rect_p1';
     const isM1 = node.nodeType === 'rect_m1';
     const isRect = isP1 || isM1;
     const isHiddenByRect = (isP1 && !showRectNodes) || (isM1 && !showM1Nodes);
-    // Hide square nodes when showSquareNodes is off, unless they are endpoints of rect edges
     const isHiddenBySquare = !isRect && !showSquareNodes && !rectReferencedSquareIds.has(node.id);
     let isHiddenByLevel = false;
 
-    if (activeLevel !== null) {
+    if (activeTier !== null) {
         if (showBelowLevel) {
-            isHiddenByLevel = node.n > activeLevel;
+            isHiddenByLevel = node.tier > activeTier;
         } else {
-            // For fractional n (rect nodes), visible when activeLevel matches floor or ceil
-            const nodeFloor = Math.floor(node.n);
-            const nodeCeil = Math.ceil(node.n);
-            const isN = nodeFloor === activeLevel || nodeCeil === activeLevel;
-            const isNMinus1 = nodeFloor === activeLevel - 1 || nodeCeil === activeLevel - 1;
+            // Show nodes at activeTier and activeTier-1
+            // For even tiers, also show activeTier-2 where t is maximum
+            const isCurrentTier = node.tier === activeTier;
+            const isPrevTier = node.tier === activeTier - 1;
 
-            let isNMinus2MaxT = false;
-            if (activeLevel % 2 === 0) {
-                const targetN = activeLevel - 2;
-                const maxT = Math.floor(targetN / 2);
-                isNMinus2MaxT = ((nodeFloor === targetN || nodeCeil === targetN) && node.t === maxT);
+            let isTwoBelow = false;
+            if (activeTier % 2 === 0) {
+                const targetTier = activeTier - 2;
+                // Show max-t nodes at targetTier (deepest exchange state)
+                const maxT = Math.floor(targetTier / 2);
+                isTwoBelow = node.tier === targetTier && node.t === maxT;
             }
 
-            isHiddenByLevel = !(isN || isNMinus1 || isNMinus2MaxT);
+            isHiddenByLevel = !(isCurrentTier || isPrevTier || isTwoBelow);
         }
     }
     const isDimmed = selectedPath.length > 0 && !isSelected;
@@ -78,7 +66,6 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     const isEndNode = node.matrix[0] === 0 && node.matrix[1] === 0 && node.matrix[2] === 0 && node.matrix[3] === 0;
 
     // Identify starting points: R1=0 and C1=0 (excluding the end node)
-    // For original nodes, this is [[n,0],[n,0]], for rectangular nodes this is [[n,0],[n+1,0]] or vice-versa
     const isStartNode = !isEndNode && node.matrix[1] === 0 && node.matrix[3] === 0;
 
     // Colors — square=emerald/red; rect (p1 & m1) both use cyan/amber
@@ -102,8 +89,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     const emissiveIntensity = isStartNode ? 0.8 : isEndNode ? 0.8 : node.isWin === true ? 0.5 : 0;
 
     const getPositionString = () => {
-        const x_str = node.x > 0 ? `r${node.x}` : node.y > 0 ? `c${node.y}` : `r0`;
-        return `Lv${node.n}e${node.t}${x_str}`;
+        return `T${node.tier} ${node.id}`;
     };
 
     let cardBg = 'bg-slate-800/90 border-slate-600 text-slate-200';
@@ -175,10 +161,10 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
                     <div className="bg-slate-900/90 text-white p-3 rounded-lg shadow-xl border border-slate-700 w-48 backdrop-blur-sm z-50">
                         <h3 className="font-bold border-b border-slate-700 pb-1 mb-2 text-sm">{node.id}</h3>
                         <div className="grid grid-cols-2 gap-1 text-xs text-slate-300">
-                            <div>Level (n): <span className="text-white font-mono">{node.n}</span></div>
-                            <div>Turn (t): <span className="text-white font-mono">{node.t}</span></div>
-                            <div>X axis (x): <span className="text-white font-mono">{node.x}</span></div>
-                            <div>Y axis (y): <span className="text-white font-mono">{node.y}</span></div>
+                            <div>Tier: <span className="text-white font-mono">{node.tier}</span></div>
+                            <div>Type: <span className="text-white font-mono">{node.nodeType || 'square'}</span></div>
+                            <div>Rows: <span className="text-white font-mono">{node.matrix[0] + node.matrix[1]}</span></div>
+                            <div>Cols: <span className="text-white font-mono">{node.matrix[2] + node.matrix[3]}</span></div>
                         </div>
                         <div className="mt-2 pt-2 border-t border-slate-700">
                             <span className="text-xs text-slate-400">Matrix:</span>

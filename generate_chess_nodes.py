@@ -8,87 +8,100 @@ def adjust_matrix(M):
     d = min(d, a)
     return [[a, c], [b, d]]
 
-def get_node_id(M):
-    """根據定理2，將矩陣反推回節點 ID"""
-    a, c = M[0]
-    b, d = M[1]
-    
+def matrix_to_id(R0, R1, C0, C1):
+    """New universal ID: {rows}x{cols}_{R1}_{C1}"""
+    return f"{R0+R1}x{C0+C1}_{R1}_{C1}"
+
+def get_legacy_params(R0, R1, C0, C1):
+    """Compute legacy (id, n, t, x, y) from matrix for backward compat"""
+    a, c, b, d = R0, R1, C0, C1
     if a >= b and d >= c:
         n = 2 * a - b + c
         t = c + a - b
         x = a - b
-        return f"Lv{n}_e{t}_r{x}"
+        return f"Lv{n}_e{t}_r{x}", n, t, x, 0
     elif a <= b and d <= c:
         n = 2 * b - a + d
         t = d + b - a
         y = b - a
-        return f"Lv{n}_e{t}_c{y}"
-    else:
-        return None
+        return f"Lv{n}_e{t}_c{y}", n, t, 0, y
+    return None, 0, 0, 0, 0
 
 def generate_graph(max_n=6):
-    nodes = {}
-    
-    # 1. 建立所有 n=0 到 max_n 的節點
+    nodes = {}  # key: (R0, R1, C0, C1) tuple -> node dict
+
+    # 1. 建立所有節點 (by matrix, auto-deduplicate)
     for n in range(max_n + 1):
         for t in range((n // 2) + 1):
             # r 側節點
             for x in range(t + 1):
                 M = adjust_matrix([[n-t, t-x], [n-t-x, t+x]])
-                node_id = f"Lv{n}_e{t}_r{x}"
-                nodes[node_id] = {
-                    "id": node_id, "n": n, "t": t, "x": x, "y": 0,
-                    "matrix": [M[0][0], M[0][1], M[1][0], M[1][1]],
-                    "nextNodes": [], "isWin": None, "grundy": None
-                }
+                flat = (M[0][0], M[0][1], M[1][0], M[1][1])
+                if flat not in nodes:
+                    R0, R1, C0, C1 = flat
+                    lid, cn, ct, cx, cy = get_legacy_params(R0, R1, C0, C1)
+                    nodes[flat] = {
+                        "id": matrix_to_id(R0, R1, C0, C1),
+                        "legacyId": lid,
+                        "tier": R0 + C0,
+                        "n": cn, "t": ct, "x": cx, "y": cy,
+                        "matrix": [R0, R1, C0, C1],
+                        "nextNodes": [], "isWin": None, "grundy": None,
+                        "nodeType": "square"
+                    }
             # c 側節點 (從 y=1 開始避免重複中軸)
             for y in range(1, t + 1):
                 M = adjust_matrix([[n-t-y, t+y], [n-t, t-y]])
-                node_id = f"Lv{n}_e{t}_c{y}"
-                nodes[node_id] = {
-                    "id": node_id, "n": n, "t": t, "x": 0, "y": y,
-                    "matrix": [M[0][0], M[0][1], M[1][0], M[1][1]],
-                    "nextNodes": [], "isWin": None, "grundy": None
-                }
-                
-    # 2. 建立連線 (Edges)
-    for node_id, data in nodes.items():
-        M = [[data["matrix"][0], data["matrix"][1]], 
-             [data["matrix"][2], data["matrix"][3]]]
-        a, c = M[0]
-        b, d = M[1]
+                flat = (M[0][0], M[0][1], M[1][0], M[1][1])
+                if flat not in nodes:
+                    R0, R1, C0, C1 = flat
+                    lid, cn, ct, cx, cy = get_legacy_params(R0, R1, C0, C1)
+                    nodes[flat] = {
+                        "id": matrix_to_id(R0, R1, C0, C1),
+                        "legacyId": lid,
+                        "tier": R0 + C0,
+                        "n": cn, "t": ct, "x": cx, "y": cy,
+                        "matrix": [R0, R1, C0, C1],
+                        "nextNodes": [], "isWin": None, "grundy": None,
+                        "nodeType": "square"
+                    }
+
+    # 2. 建立連線 (Edges) — directly using matrix tuples
+    for flat, data in nodes.items():
+        R0, R1, C0, C1 = flat
         next_ids = set()
 
         # 下 e (空白格)
-        if a >= 1 and b >= 1:
-            M_e = adjust_matrix([[a-1, c+1], [b-1, d+1]])
-            n_id = get_node_id(M_e)
-            if n_id in nodes: next_ids.add(n_id)
+        if R0 >= 1 and C0 >= 1:
+            M_e = adjust_matrix([[R0-1, R1+1], [C0-1, C1+1]])
+            cf = (M_e[0][0], M_e[0][1], M_e[1][0], M_e[1][1])
+            if cf in nodes: next_ids.add(nodes[cf]["id"])
 
         # 下 r (橫線格)
-        if c >= 1 and b >= 1:
-            M_r = adjust_matrix([[a, c-1], [b-1, d+1]])
-            n_id = get_node_id(M_r)
-            if n_id in nodes: next_ids.add(n_id)
+        if R1 >= 1 and C0 >= 1:
+            M_r = adjust_matrix([[R0, R1-1], [C0-1, C1+1]])
+            cf = (M_r[0][0], M_r[0][1], M_r[1][0], M_r[1][1])
+            if cf in nodes: next_ids.add(nodes[cf]["id"])
 
         # 下 c (直線格)
-        if a >= 1 and d >= 1:
-            M_c = adjust_matrix([[a-1, c+1], [b, d-1]])
-            n_id = get_node_id(M_c)
-            if n_id in nodes: next_ids.add(n_id)
+        if R0 >= 1 and C1 >= 1:
+            M_c = adjust_matrix([[R0-1, R1+1], [C0, C1-1]])
+            cf = (M_c[0][0], M_c[0][1], M_c[1][0], M_c[1][1])
+            if cf in nodes: next_ids.add(nodes[cf]["id"])
 
         data["nextNodes"] = list(next_ids)
 
     # 3. 逆向推導勝敗點 (Retrograde Analysis)
+    nodes_by_id = {n["id"]: n for n in nodes.values()}
     changed = True
     while changed:
         changed = False
         for node in nodes.values():
             if node["isWin"] is not None:
                 continue
-            
-            children = [nodes[nid] for nid in node["nextNodes"]]
-            
+
+            children = [nodes_by_id[nid] for nid in node["nextNodes"]]
+
             # 終點為勝點
             if len(children) == 0:
                 node["isWin"] = True
@@ -103,26 +116,24 @@ def generate_graph(max_n=6):
                 changed = True
 
     # 4. 計算 DP/Grundy (SG) 值 (計算 mex)
-    # 由於是 DAG，可以依照 n 從小到大 (由底層向上計算)
-    # 注意有些同 n 的點可能會互連，最好直接用 memoization 的 DFS
     def compute_grundy(node_id):
-        node = nodes[node_id]
+        node = nodes_by_id[node_id]
         if node["grundy"] is not None:
             return node["grundy"]
-        
+
         child_grundys = set()
         for child_id in node["nextNodes"]:
             child_grundys.add(compute_grundy(child_id))
-            
+
         # mex (Minimum Excluded Value)
         g = 0
         while g in child_grundys:
             g += 1
-            
+
         node["grundy"] = g
         return g
 
-    for node_id in nodes:
+    for node_id in nodes_by_id:
         compute_grundy(node_id)
 
     return list(nodes.values())
