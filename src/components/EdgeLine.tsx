@@ -11,10 +11,10 @@ interface EdgeLineProps {
 export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const { selectedPath, activeLevel, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
 
-    const startIsP1 = startNode.nodeType === 'rect_p1';
-    const endIsP1 = endNode.nodeType === 'rect_p1';
-    const startIsM1 = startNode.nodeType === 'rect_m1';
-    const endIsM1 = endNode.nodeType === 'rect_m1';
+    const startIsP1 = startNode.nodeType === 'rect_p1' || startNode.nodeType === 'noadj_p1';
+    const endIsP1 = endNode.nodeType === 'rect_p1' || endNode.nodeType === 'noadj_p1';
+    const startIsM1 = startNode.nodeType === 'rect_m1' || startNode.nodeType === 'noadj_m1';
+    const endIsM1 = endNode.nodeType === 'rect_m1' || endNode.nodeType === 'noadj_m1';
 
     // Hide edges involving hidden rect nodes
     if (!showRectNodes && (startIsP1 || endIsP1)) return null;
