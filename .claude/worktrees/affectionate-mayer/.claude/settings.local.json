@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/WebDesign/DoubleChess3DMap/**)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
