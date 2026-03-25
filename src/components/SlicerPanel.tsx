@@ -187,26 +187,30 @@ export const SlicerPanel = () => {
                     )}
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-slate-700/50 text-xs text-slate-400 space-y-2">
+                <div className="mt-4 pt-4 border-t border-slate-700/50 text-[10px] text-slate-400 grid grid-cols-2 gap-y-2">
                     <p className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
-                        Winning Nodes
+                        Square Win
                     </p>
                     <p className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-red-500 shadow-sm"></span>
-                        Losing Nodes
+                        <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                        Square Lose
                     </p>
                     <p className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-cyan-300"></span>
-                        Rect Win (p1 / m1 / m2~m4)
+                        Rect Win
                     </p>
                     <p className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-amber-300"></span>
-                        Rect Lose (p1 / m1 / m2~m4)
+                        <span className="w-3 h-3 rounded-full bg-orange-400"></span>
+                        Rect Lose
                     </p>
                     <p className="flex items-center gap-2">
-                        <span className="w-4 h-0.5 bg-amber-500 rounded"></span>
-                        Level Traversal Line
+                        <span className="w-3 h-3 rounded-full bg-yellow-400 shadow-[0_0_8px_rgba(255,255,0,0.6)]"></span>
+                        Target (End)
+                    </p>
+                    <p className="flex items-center gap-2">
+                        <span className="w-3 h-3 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]"></span>
+                        Root (Start)
                     </p>
                 </div>
             </div>

@@ -18,6 +18,15 @@ def matrix_to_flat(M):
     return [M[0][0], M[0][1], M[1][0], M[1][1]]
 
 
+def has_any_moves(flat):
+    """回傳此狀態是否還有合法移動 (e, r, c)"""
+    R0, R1, C0, C1 = flat
+    if R0 >= 1 and C0 >= 1: return True   # e 步
+    if R1 >= 1 and C0 >= 1: return True   # r 步
+    if R0 >= 1 and C1 >= 1: return True   # c 步
+    return False
+
+
 def find_position(flat, square_nodes_by_matrix):
     """
     Position by bracketing square nodes with same R0, C0, sorted by R1+C1.
@@ -196,6 +205,13 @@ def generate_rect_m1(max_n=8):
 
 
 def compute_win_loss(rect_nodes, known_by_id):
+    """
+    DAG 逆向推算 (retrograde analysis)：
+    - 真實終點 (無合法移動) -> isWin = True, grundy = 0
+    - 被截斷點 (有合法移動但 nextNodes 為空) -> isWin = False, grundy = 1
+    - grundy = MEX({child_grundy})
+    - isWin = (grundy == 0)
+    """
     rect_map = {n["id"]: n for n in rect_nodes}
 
     pending_children = {n["id"]: 0 for n in rect_nodes}
@@ -215,20 +231,31 @@ def compute_win_loss(rect_nodes, known_by_id):
         node = rect_map[nid]
         resolved += 1
 
-        win = False
-        for child_id in node["nextNodes"]:
-            if child_id in rect_map:
-                child_win = rect_map[child_id]["isWin"]
-            elif child_id in known_by_id:
-                child_win = known_by_id[child_id]["isWin"]
+        if not node["nextNodes"]:
+            if not has_any_moves(node["matrix"]):
+                node["isWin"] = True
+                node["grundy"] = 0
             else:
-                child_win = None
+                node["isWin"] = False
+                node["grundy"] = 1
+        else:
+            child_grundys = set()
+            for child_id in node["nextNodes"]:
+                if child_id in rect_map:
+                    g = rect_map[child_id]["grundy"]
+                elif child_id in known_by_id:
+                    g = known_by_id[child_id]["grundy"]
+                else:
+                    g = 0
 
-            if child_win is False:
-                win = True
-                break
+                if g is not None:
+                    child_grundys.add(g)
 
-        node["isWin"] = False if not node["nextNodes"] else win
+            mex_val = 0
+            while mex_val in child_grundys:
+                mex_val += 1
+            node["grundy"] = mex_val
+            node["isWin"] = (mex_val == 0)
 
         for parent_id in parents_of[nid]:
             pending_children[parent_id] -= 1
@@ -239,7 +266,7 @@ def compute_win_loss(rect_nodes, known_by_id):
     if unresolved:
         print(f"  警告：{len(unresolved)} 個節點未解析: {unresolved[:5]}")
     else:
-        print(f"  所有 {resolved} 個 m1 節點已計算 isWin")
+        print(f"  所有 {resolved} 個 m1 節點已計算 isWin 與 grundy")
 
 
 if __name__ == "__main__":

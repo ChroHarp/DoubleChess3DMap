@@ -15,7 +15,7 @@
       "Rect_m3_3_0_0_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -34,7 +34,7 @@
       "Rect_m3_2_0_0_0"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -51,7 +51,7 @@
     ],
     "nextNodes": [],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -70,7 +70,7 @@
       "Rect_m3_4_1_1_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -91,7 +91,7 @@
       "Rect_m2_3_0_0_2"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -110,7 +110,7 @@
       "Rect_m3_3_0_0_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -130,7 +130,7 @@
       "Rect_m2_2_0_0_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -149,7 +149,7 @@
       "Rect_m3_5_1_2_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -170,7 +170,7 @@
       "Rect_m3_4_2_2_0"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -191,7 +191,7 @@
       "Lv6_e3_r3"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -211,7 +211,7 @@
       "Rect_m3_4_1_1_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -231,7 +231,7 @@
       "Rect_m3_4_1_1_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -250,7 +250,7 @@
       "Rect_m2_3_0_0_2"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -269,7 +269,7 @@
       "Rect_m3_6_1_3_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -290,7 +290,7 @@
       "Rect_m3_5_2_3_0"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -311,7 +311,7 @@
       "Rect_m2_4_1_1_3"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -331,7 +331,7 @@
       "Rect_m3_5_1_2_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -351,7 +351,7 @@
       "Rect_m3_5_1_2_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -372,7 +372,7 @@
       "Lv8_e4_r4"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -393,7 +393,7 @@
       "Rect_m2_3_1_1_2"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -412,7 +412,7 @@
       "Rect_m3_4_0_0_3"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -431,7 +431,7 @@
       "Rect_m3_7_1_4_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -452,7 +452,7 @@
       "Rect_m3_6_2_4_0"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -473,7 +473,7 @@
       "Rect_m3_5_3_3_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -493,7 +493,7 @@
       "Rect_m3_6_1_3_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -513,7 +513,7 @@
       "Rect_m3_6_1_3_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -533,8 +533,8 @@
       "Rect_m2_4_2_2_2",
       "Lv8_e4_r3"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -555,7 +555,7 @@
       "Rect_m3_5_2_2_2"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -576,7 +576,7 @@
       "Rect_m3_4_3_3_0"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -596,8 +596,8 @@
       "Rect_m2_4_1_1_3",
       "Lv8_e4_r4"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -617,7 +617,7 @@
       "Rect_m3_5_1_1_3"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -637,7 +637,7 @@
       "Rect_m3_4_2_2_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -655,8 +655,8 @@
     "nextNodes": [
       "Rect_m3_8_1_5_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -676,8 +676,8 @@
       "Rect_m3_8_0_4_2",
       "Rect_m3_7_2_5_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -697,8 +697,8 @@
       "Rect_m3_7_1_3_3",
       "Rect_m3_6_3_4_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -718,7 +718,7 @@
       "Rect_m3_7_1_4_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -738,7 +738,7 @@
       "Rect_m3_7_1_4_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -758,8 +758,8 @@
       "Rect_m3_5_3_3_2",
       "Rect_m2_5_2_2_4"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -779,8 +779,8 @@
       "Rect_m3_7_0_2_4",
       "Rect_m3_6_2_3_2"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -800,8 +800,8 @@
       "Rect_m3_6_2_3_2",
       "Rect_m3_5_4_4_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -822,7 +822,7 @@
       "Rect_m1_5_1_1_5"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -842,8 +842,8 @@
       "Rect_m2_4_3_3_1",
       "Rect_m2_4_2_2_3"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -863,7 +863,7 @@
       "Rect_m3_6_1_2_3"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -883,7 +883,7 @@
       "Rect_m3_5_3_3_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -903,8 +903,8 @@
       "Rect_m3_5_1_1_4",
       "Rect_m1_5_0_0_5"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 3,
     "nodeType": "rect_m3"
   },
   {
@@ -922,8 +922,8 @@
     "nextNodes": [
       "Rect_m3_9_1_6_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -943,8 +943,8 @@
       "Rect_m3_9_0_5_2",
       "Rect_m3_8_2_6_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -964,8 +964,8 @@
       "Rect_m3_8_1_4_3",
       "Rect_m3_7_3_5_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -984,8 +984,8 @@
       "Rect_m3_8_1_4_3",
       "Rect_m3_8_1_5_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1004,8 +1004,8 @@
       "Rect_m3_7_3_5_1",
       "Rect_m3_8_1_5_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1025,8 +1025,8 @@
       "Rect_m3_7_2_3_4",
       "Rect_m3_6_4_4_2"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1046,8 +1046,8 @@
       "Rect_m3_8_0_3_4",
       "Rect_m3_7_2_4_2"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1067,8 +1067,8 @@
       "Rect_m3_7_2_4_2",
       "Rect_m3_6_4_5_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1087,8 +1087,8 @@
       "Rect_m3_6_2_2_5",
       "Rect_m2_5_3_3_3"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -1109,7 +1109,7 @@
       "Rect_m3_6_3_3_3"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -1130,7 +1130,7 @@
       "Rect_m3_5_4_4_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1150,7 +1150,7 @@
       "Rect_m3_7_1_3_3"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -1169,8 +1169,8 @@
       "Rect_m3_5_4_4_1",
       "Rect_m3_6_3_4_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1190,7 +1190,7 @@
       "Rect_m2_5_2_2_4"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1211,7 +1211,7 @@
       "Rect_m3_6_2_2_4"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1231,8 +1231,8 @@
       "Rect_m3_5_3_3_2",
       "Rect_m2_4_4_4_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1252,7 +1252,7 @@
       "Rect_m3_6_1_1_5"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1270,8 +1270,8 @@
     "nextNodes": [
       "Rect_m3_10_1_7_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1291,8 +1291,8 @@
       "Rect_m3_10_0_6_2",
       "Rect_m3_9_2_7_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1312,8 +1312,8 @@
       "Rect_m3_9_1_5_3",
       "Rect_m3_8_3_6_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1332,8 +1332,8 @@
       "Rect_m3_9_1_5_3",
       "Rect_m3_9_1_6_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1352,8 +1352,8 @@
       "Rect_m3_8_3_6_1",
       "Rect_m3_9_1_6_1"
     ],
-    "isWin": false,
-    "grundy": null,
+    "isWin": true,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1373,8 +1373,8 @@
       "Rect_m3_8_2_4_4",
       "Rect_m3_7_4_5_2"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1394,8 +1394,8 @@
       "Rect_m3_9_0_4_4",
       "Rect_m3_8_2_5_2"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1415,8 +1415,8 @@
       "Rect_m3_8_2_5_2",
       "Rect_m3_7_4_6_0"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1435,8 +1435,8 @@
       "Rect_m3_7_3_3_5",
       "Rect_m3_6_4_4_3"
     ],
-    "isWin": true,
-    "grundy": null,
+    "isWin": false,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -1457,7 +1457,7 @@
       "Rect_m3_7_3_4_3"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -1478,7 +1478,7 @@
       "Rect_m3_6_5_5_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1498,7 +1498,7 @@
       "Rect_m3_8_1_4_3"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 2,
     "nodeType": "rect_m3"
   },
   {
@@ -1518,7 +1518,7 @@
       "Rect_m3_7_3_5_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1538,7 +1538,7 @@
       "Rect_m3_6_3_3_4"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1558,7 +1558,7 @@
       "Rect_m2_5_4_4_2"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1579,7 +1579,7 @@
       "Rect_m3_7_2_3_4"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1600,7 +1600,7 @@
       "Rect_m3_5_5_5_0"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1620,7 +1620,7 @@
       "Rect_m3_6_2_2_5"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1640,7 +1640,7 @@
       "Rect_m3_7_1_2_5"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   },
   {
@@ -1660,7 +1660,7 @@
       "Rect_m3_5_4_4_1"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1680,7 +1680,7 @@
       "Rect_m2_6_1_1_6"
     ],
     "isWin": true,
-    "grundy": null,
+    "grundy": 0,
     "nodeType": "rect_m3"
   },
   {
@@ -1699,7 +1699,7 @@
       "Rect_m2_6_0_0_6"
     ],
     "isWin": false,
-    "grundy": null,
+    "grundy": 1,
     "nodeType": "rect_m3"
   }
 ]

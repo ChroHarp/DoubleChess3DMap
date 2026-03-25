@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/WebDesign/DoubleChess3DMap/**)",
+      "Bash(npm run:*)",
+      "Bash(python -c \"import json; d=json.load\\(open\\(''src/data.json''\\)\\); print\\(list\\(d[0].keys\\(\\)\\)\\); print\\(d[0]\\)\")",
+      "Bash(python -c \":*)"
+    ]
+  }
+}

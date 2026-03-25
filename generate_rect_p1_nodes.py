@@ -33,6 +33,14 @@ def get_square_node_id(M):
     else:
         return None
 
+def has_any_moves(flat):
+    """回傳此狀態是否還有合法移動 (e, r, c)"""
+    R0, R1, C0, C1 = flat
+    if R0 >= 1 and C0 >= 1: return True   # e 步
+    if R1 >= 1 and C0 >= 1: return True   # r 步
+    if R0 >= 1 and C1 >= 1: return True   # c 步
+    return False
+
 def find_position(flat, square_nodes_by_matrix, square_nodes_by_id):
     """
     為矩形節點計算位置 (n, t, x, y)。
@@ -232,16 +240,13 @@ def generate_rect_p1(max_n=8):
 def compute_win_loss(rect_nodes, square_nodes_by_id):
     """
     DAG 逆向推算 (retrograde analysis)：
-    - 終點 (nextNodes 全為方形節點) 直接從方形節點 isWin 計算
-    - isWin = 存在至少一個 nextNode.isWin == False（可移至對手輸的位置）
-    - isLose = 所有 nextNode.isWin == True，或 nextNodes 為空
-    - 用 Kahn 拓撲排序從葉往根處理
+    - 真實終點 (無合法移動) -> isWin = True, grundy = 0
+    - 被截斷點 (有合法移動但 nextNodes 為空) -> isWin = False, grundy = 1
+    - grundy = MEX({child_grundy})
+    - isWin = (grundy == 0)
     """
     rect_map = {n["id"]: n for n in rect_nodes}
 
-    # 建立 rect 子圖的 in-degree（父→子方向為 forward，我們要 leaf-first）
-    # forward: parent -> children  (nextNodes)
-    # 我們需要知道每個節點「有幾個 rect 子節點尚未解決」
     pending_children = {n["id"]: 0 for n in rect_nodes}
     parents_of = {n["id"]: [] for n in rect_nodes}
 
@@ -251,7 +256,6 @@ def compute_win_loss(rect_nodes, square_nodes_by_id):
                 pending_children[node["id"]] += 1
                 parents_of[child_id].append(node["id"])
 
-    # 初始化：pending_children == 0 的節點（所有子節點都是方形節點）
     from collections import deque
     queue = deque(nid for nid, cnt in pending_children.items() if cnt == 0)
 
@@ -261,24 +265,34 @@ def compute_win_loss(rect_nodes, square_nodes_by_id):
         node = rect_map[nid]
         resolved += 1
 
-        # 計算此節點的 isWin
-        win = False
-        for child_id in node["nextNodes"]:
-            if child_id in rect_map:
-                child_win = rect_map[child_id]["isWin"]
-            elif child_id in square_nodes_by_id:
-                child_win = square_nodes_by_id[child_id]["isWin"]
-            else:
-                child_win = None
-
-            if child_win is False:
-                win = True
-                break
-
         if not node["nextNodes"]:
-            win = False  # 沒有合法移動 = 輸
+            # 處理終端節點或截斷節點
+            if not has_any_moves(node["matrix"]):
+                node["isWin"] = True
+                node["grundy"] = 0
+            else:
+                node["isWin"] = False
+                node["grundy"] = 1  # 截斷節點
+        else:
+            child_grundys = set()
+            for child_id in node["nextNodes"]:
+                if child_id in rect_map:
+                    g = rect_map[child_id]["grundy"]
+                elif child_id in square_nodes_by_id:
+                    g = square_nodes_by_id[child_id]["grundy"]
+                else:
+                    g = 0 # 預防萬一
 
-        node["isWin"] = win
+                if g is not None:
+                    child_grundys.add(g)
+
+            # MEX (Minimum Excluded Value)
+            mex_val = 0
+            while mex_val in child_grundys:
+                mex_val += 1
+            
+            node["grundy"] = mex_val
+            node["isWin"] = (mex_val == 0)
 
         # 通知父節點
         for parent_id in parents_of[nid]:
@@ -290,7 +304,7 @@ def compute_win_loss(rect_nodes, square_nodes_by_id):
     if unresolved:
         print(f"  警告：{len(unresolved)} 個節點未能解析（可能有環）: {unresolved[:5]}")
     else:
-        print(f"  所有 {resolved} 個矩形節點已計算 isWin")
+        print(f"  所有 {resolved} 個矩形節點已計算 isWin 與 grundy")
 
 
 if __name__ == "__main__":

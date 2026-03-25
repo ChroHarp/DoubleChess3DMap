@@ -99,12 +99,12 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     // For original nodes, this is [[n,0],[n,0]], for rectangular nodes this is [[n,0],[n+1,0]] or vice-versa
     const isStartNode = !isEndNode && node.matrix[1] === 0 && node.matrix[3] === 0;
 
-    // Colors — square=emerald/red; rect (p1 & m1) both use cyan/amber
+    // Colors — square=emerald/red; rect (p1 & m1) both use cyan/orange
     const winColor = new THREE.Color(isRect ? '#67e8f9' : '#10b981');
-    const loseColor = new THREE.Color(isRect ? '#fcd34d' : '#ef4444');
+    const loseColor = new THREE.Color(isRect ? '#f97316' : '#ef4444'); // Rect lose is Orange
     const defaultColor = new THREE.Color('#94a3b8'); // Slate 400
     const startColor = new THREE.Color('#ffffff'); // White
-    const endColor = new THREE.Color('#eab308'); // Yellow 500
+    const endColor = new THREE.Color('#ffff00'); // Terminal Yellow (Pure Yellow)
 
     // Pre-calculated path counts from [n,0,n,0] to [0,0,0,0]
     const pathCounts: Record<number, number> = {
@@ -131,7 +131,7 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
         if (isRect) cardBg = 'bg-cyan-800/70 border-cyan-400 text-cyan-50';
         else cardBg = 'bg-emerald-900/90 border-emerald-500 text-emerald-50';
     } else if (node.isWin === false) {
-        if (isRect) cardBg = 'bg-amber-800/70 border-amber-400 text-amber-50';
+        if (isRect) cardBg = 'bg-orange-800/70 border-orange-400 text-orange-50';
         else cardBg = 'bg-red-900/90 border-red-500 text-red-50';
     }
 
