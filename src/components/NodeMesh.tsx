@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Html } from '@react-three/drei';
 import type { Mesh } from 'three';
 import * as THREE from 'three';
-import { useStore, rectReferencedSquareIds } from '../store/useStore';
+import { useStore, rectReferencedSquareIds, rectLvMap } from '../store/useStore';
 import type { ChessNode } from '../types';
 
 interface NodeMeshProps {
@@ -59,23 +59,29 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     let isHiddenByLevel = false;
 
     if (activeLevel !== null) {
-        if (showBelowLevel) {
-            isHiddenByLevel = node.n > activeLevel;
-        } else {
-            // For fractional n (rect nodes), visible when activeLevel matches floor or ceil
-            const nodeFloor = Math.floor(node.n);
-            const nodeCeil = Math.ceil(node.n);
-            const isN = nodeFloor === activeLevel || nodeCeil === activeLevel;
-            const isNMinus1 = nodeFloor === activeLevel - 1 || nodeCeil === activeLevel - 1;
-
-            let isNMinus2MaxT = false;
-            if (activeLevel % 2 === 0) {
-                const targetN = activeLevel - 2;
-                const maxT = Math.floor(targetN / 2);
-                isNMinus2MaxT = ((nodeFloor === targetN || nodeCeil === targetN) && node.t === maxT);
+        if (isRect) {
+            // Rect nodes: use Lv = min(R0, C0) of their chain's starting node
+            const lv = rectLvMap[node.id] ?? Math.floor(node.n);
+            if (showBelowLevel) {
+                isHiddenByLevel = lv > activeLevel;
+            } else {
+                isHiddenByLevel = !(lv === activeLevel || lv === activeLevel - 1);
             }
-
-            isHiddenByLevel = !(isN || isNMinus1 || isNMinus2MaxT);
+        } else {
+            // Square nodes: integer n
+            if (showBelowLevel) {
+                isHiddenByLevel = node.n > activeLevel;
+            } else {
+                const isN = node.n === activeLevel;
+                const isNMinus1 = node.n === activeLevel - 1;
+                let isNMinus2MaxT = false;
+                if (activeLevel % 2 === 0) {
+                    const targetN = activeLevel - 2;
+                    const maxT = Math.floor(targetN / 2);
+                    isNMinus2MaxT = (node.n === targetN && node.t === maxT);
+                }
+                isHiddenByLevel = !(isN || isNMinus1 || isNMinus2MaxT);
+            }
         }
     }
     const isDimmed = selectedPath.length > 0 && !isSelected;

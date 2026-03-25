@@ -26,6 +26,44 @@ const noAdjP1Nodes = (rawNoAdjP1Data as ChessNode[]).map(n => ({ ...n, nodeType:
 const noAdjM1Nodes = (rawNoAdjM1Data as ChessNode[]).map(n => ({ ...n, nodeType: 'noadj_m1' as const }));
 const noAdjNodesData = [...noAdjSquareNodes, ...noAdjP1Nodes, ...noAdjM1Nodes];
 
+// Pre-compute: rect node Lv = min(R0, C0) of its chain's starting node (matrix[1]=0, matrix[3]=0)
+// If reachable from multiple chains, take the minimum Lv.
+function computeRectLvMap(allNodes: ChessNode[]): Record<string, number> {
+    const squareTypes = new Set<string | undefined>(['square', 'noadj_square', undefined]);
+    const rectIds = new Set(allNodes.filter(n => !squareTypes.has(n.nodeType)).map(n => n.id));
+    const byId: Record<string, ChessNode> = {};
+    for (const n of allNodes) byId[n.id] = n;
+    const lvMap: Record<string, number> = {};
+
+    // Starting nodes: rect nodes where R1=matrix[1]=0 and C1=matrix[3]=0
+    for (const node of allNodes) {
+        if (!rectIds.has(node.id) || node.matrix[1] !== 0 || node.matrix[3] !== 0) continue;
+        const lv = Math.min(node.matrix[0], node.matrix[2]);
+        const queue: string[] = [node.id];
+        const seen = new Set<string>([node.id]);
+        while (queue.length) {
+            const id = queue.shift()!;
+            lvMap[id] = Math.min(lvMap[id] ?? Infinity, lv);
+            for (const child of (byId[id]?.nextNodes ?? [])) {
+                if (rectIds.has(child) && !seen.has(child)) {
+                    seen.add(child);
+                    queue.push(child);
+                }
+            }
+        }
+    }
+
+    // Fallback: any rect node not covered by a chain
+    for (const id of rectIds) {
+        if (!(id in lvMap)) {
+            const n = byId[id];
+            if (n) lvMap[id] = Math.min(n.matrix[0], n.matrix[2]);
+        }
+    }
+    return lvMap;
+}
+export const rectLvMap = computeRectLvMap([...nodesData, ...noAdjNodesData]);
+
 // Pre-compute: square node IDs that are referenced by any rect nextNodes
 export const rectReferencedSquareIds = new Set<string>(
     [...rectP1Nodes, ...rectM1Nodes, ...rectM2Nodes, ...rectM3Nodes, ...rectM4Nodes].flatMap(n => n.nextNodes)

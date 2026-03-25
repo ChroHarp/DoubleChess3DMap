@@ -1,5 +1,5 @@
 import { Line } from '@react-three/drei';
-import { useStore, rectReferencedSquareIds } from '../store/useStore';
+import { useStore, rectReferencedSquareIds, rectLvMap } from '../store/useStore';
 import type { ChessNode } from '../types';
 import * as THREE from 'three';
 
@@ -33,26 +33,26 @@ export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const isSelectedEdge = selectedPath.includes(startNode.id) && selectedPath.includes(endNode.id);
     const isDimmed = selectedPath.length > 0 && !isSelectedEdge;
 
-    // Complex visibility rules (must match NodeMesh, supports fractional n)
+    // Visibility rules (must match NodeMesh)
     if (isHiddenByLevel && activeLevel !== null) {
-        const checkHidden = (n: number, t: number) => {
-            const nFloor = Math.floor(n);
-            const nCeil = Math.ceil(n);
-            if (showBelowLevel) {
-                return n > activeLevel;
-            }
-            const isN = nFloor === activeLevel || nCeil === activeLevel;
-            const isNMinus1 = nFloor === activeLevel - 1 || nCeil === activeLevel - 1;
-            let isNMinus2MaxT = false;
-            if (activeLevel % 2 === 0) {
+        const getEffectiveLv = (node: ChessNode) => {
+            const isRect = node.nodeType && node.nodeType !== 'square' && node.nodeType !== 'noadj_square';
+            return isRect ? (rectLvMap[node.id] ?? Math.floor(node.n)) : node.n;
+        };
+        const checkHidden = (node: ChessNode) => {
+            const lv = getEffectiveLv(node);
+            const isRect = node.nodeType && node.nodeType !== 'square' && node.nodeType !== 'noadj_square';
+            if (showBelowLevel) return lv > activeLevel;
+            if (lv === activeLevel || lv === activeLevel - 1) return false;
+            if (!isRect && activeLevel % 2 === 0) {
                 const targetN = activeLevel - 2;
                 const maxT = Math.floor(targetN / 2);
-                isNMinus2MaxT = ((nFloor === targetN || nCeil === targetN) && t === maxT);
+                if (lv === targetN && node.t === maxT) return false;
             }
-            return !(isN || isNMinus1 || isNMinus2MaxT);
+            return true;
         };
 
-        if (checkHidden(startNode.n, startNode.t) || checkHidden(endNode.n, endNode.t)) return null;
+        if (checkHidden(startNode) || checkHidden(endNode)) return null;
     }
 
     const isLevelDrop = startNode.n !== endNode.n;
