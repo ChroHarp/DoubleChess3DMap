@@ -9,7 +9,7 @@ interface EdgeLineProps {
 }
 
 export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
-    const { selectedPath, activeTier, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
+    const { selectedPath, activeLevel, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
 
     const startIsP1 = startNode.nodeType === 'rect_p1';
     const endIsP1 = endNode.nodeType === 'rect_p1';
@@ -32,16 +32,16 @@ export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
     const isDimmed = selectedPath.length > 0 && !isSelectedEdge;
 
     // Tier-based visibility (matches NodeMesh logic)
-    if (activeTier !== null) {
+    if (activeLevel !== null) {
         const checkHidden = (node: ChessNode) => {
             if (showBelowLevel) {
-                return node.tier > activeTier;
+                return node.tier > activeLevel;
             }
-            const isCurrentTier = node.tier === activeTier;
-            const isPrevTier = node.tier === activeTier - 1;
+            const isCurrentTier = node.tier === activeLevel;
+            const isPrevTier = node.tier === activeLevel - 1;
             let isTwoBelow = false;
-            if (activeTier % 2 === 0) {
-                const targetTier = activeTier - 2;
+            if (activeLevel % 2 === 0) {
+                const targetTier = activeLevel - 2;
                 const maxT = Math.floor(targetTier / 2);
                 isTwoBelow = node.tier === targetTier && node.t === maxT;
             }

@@ -4,11 +4,11 @@ import { useStore } from './store/useStore';
 import { Home } from 'lucide-react';
 
 function App() {
-  const { selectedPath, setSelectedNode, setActiveTier, triggerCameraReset } = useStore();
+  const { selectedPath, setSelectedNode, setActiveLevel, triggerCameraReset } = useStore();
 
   const handleHomeClick = () => {
     setSelectedNode(null);
-    setActiveTier(null);
+    setActiveLevel(null);
     triggerCameraReset();
   };
 

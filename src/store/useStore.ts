@@ -33,7 +33,7 @@ const coordSets: Record<string, Record<string, [number, number, number]>> = {
 
 interface DefaultState {
     nodes: ChessNode[];
-    activeTier: number | null;
+    activeLevel: number | null;
     showBelowLevel: boolean;
     showPathCounts: boolean;
     showGrundy: boolean;
@@ -45,13 +45,13 @@ interface DefaultState {
     coordMode: string;
     hoveredNode: string | null;
     selectedPath: string[]; // List of node IDs in the selected path
-    maxTier: number;
+    maxLevel: number;
     cameraResetSignal: number;
     getNodePosition: (nodeId: string) => [number, number, number];
 }
 
 interface ActionState {
-    setActiveTier: (tier: number | null) => void;
+    setActiveLevel: (level: number | null) => void;
     setShowBelowLevel: (show: boolean) => void;
     setShowPathCounts: (show: boolean) => void;
     setShowGrundy: (show: boolean) => void;
@@ -68,7 +68,7 @@ interface ActionState {
 
 export const useStore = create<DefaultState & ActionState>((set, get) => ({
     nodes: nodesData,
-    activeTier: Math.max(...nodesData.map((n) => n.tier)),
+    activeLevel: Math.max(...nodesData.map((n) => n.tier)),
     showBelowLevel: false,
     showPathCounts: true,
     showGrundy: true,
@@ -80,7 +80,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     coordMode: 'original',
     hoveredNode: null,
     selectedPath: [],
-    maxTier: Math.max(...nodesData.map((n) => n.tier)),
+    maxLevel: Math.max(...nodesData.map((n) => n.tier)),
     cameraResetSignal: 0,
     getNodePosition: (nodeId: string) => {
         const mode = get().coordMode;
@@ -88,14 +88,14 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
         return coords[nodeId] || [0, 0, 0];
     },
 
-    setActiveTier: (tier) => set({ activeTier: tier }),
+    setActiveLevel: (level) => set({ activeLevel: level }),
     setShowBelowLevel: (show) => set({ showBelowLevel: show }),
     setShowPathCounts: (show) => set({ showPathCounts: show }),
     setShowGrundy: (show) => set({ showGrundy: show }),
     setShowRectNodes: (show) => set({ showRectNodes: show }),
     setShowM1Nodes: (show) => set({ showM1Nodes: show }),
     setShowSquareNodes: (show) => set({ showSquareNodes: show }),
-    setNoAdjMode: (mode) => set((state) => {
+    setNoAdjMode: (mode) => set(() => {
         const nextNodes = mode ? noAdjNodesData : nodesData;
         const newMaxLevel = Math.ceil(Math.max(...nextNodes.map((n) => n.n)));
         return {
