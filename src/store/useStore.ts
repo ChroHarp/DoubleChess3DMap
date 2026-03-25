@@ -113,7 +113,7 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     setShowM3Nodes: (show) => set({ showM3Nodes: show }),
     setShowM4Nodes: (show) => set({ showM4Nodes: show }),
     setShowSquareNodes: (show) => set({ showSquareNodes: show }),
-    setNoAdjMode: (mode) => set((state) => {
+    setNoAdjMode: (mode) => set(() => {
         const nextNodes = mode ? noAdjNodesData : nodesData;
         const newMaxLevel = Math.ceil(Math.max(...nextNodes.map((n) => n.n)));
         return {
