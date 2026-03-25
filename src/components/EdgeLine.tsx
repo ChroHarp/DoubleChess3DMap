@@ -9,20 +9,29 @@ interface EdgeLineProps {
 }
 
 export const EdgeLine = ({ startNode, endNode }: EdgeLineProps) => {
-    const { selectedPath, activeLevel, showBelowLevel, showRectNodes, showM1Nodes, showSquareNodes, getNodePosition } = useStore();
+    const { selectedPath, activeLevel, showBelowLevel, showRectNodes, showM1Nodes, showM2Nodes, showM3Nodes, showM4Nodes, showSquareNodes, getNodePosition } = useStore();
 
     const startIsP1 = startNode.nodeType === 'rect_p1' || startNode.nodeType === 'noadj_p1';
     const endIsP1 = endNode.nodeType === 'rect_p1' || endNode.nodeType === 'noadj_p1';
     const startIsM1 = startNode.nodeType === 'rect_m1' || startNode.nodeType === 'noadj_m1';
     const endIsM1 = endNode.nodeType === 'rect_m1' || endNode.nodeType === 'noadj_m1';
+    const startIsM2 = startNode.nodeType === 'rect_m2';
+    const endIsM2 = endNode.nodeType === 'rect_m2';
+    const startIsM3 = startNode.nodeType === 'rect_m3';
+    const endIsM3 = endNode.nodeType === 'rect_m3';
+    const startIsM4 = startNode.nodeType === 'rect_m4';
+    const endIsM4 = endNode.nodeType === 'rect_m4';
 
     // Hide edges involving hidden rect nodes
     if (!showRectNodes && (startIsP1 || endIsP1)) return null;
     if (!showM1Nodes && (startIsM1 || endIsM1)) return null;
+    if (!showM2Nodes && (startIsM2 || endIsM2)) return null;
+    if (!showM3Nodes && (startIsM3 || endIsM3)) return null;
+    if (!showM4Nodes && (startIsM4 || endIsM4)) return null;
 
     // Hide edges where a square endpoint is hidden (not a rect-referenced endpoint)
-    const startIsRect = startIsP1 || startIsM1;
-    const endIsRect = endIsP1 || endIsM1;
+    const startIsRect = startIsP1 || startIsM1 || startIsM2 || startIsM3 || startIsM4;
+    const endIsRect = endIsP1 || endIsM1 || endIsM2 || endIsM3 || endIsM4;
     const startSquareHidden = !startIsRect && !showSquareNodes && !rectReferencedSquareIds.has(startNode.id);
     const endSquareHidden = !endIsRect && !showSquareNodes && !rectReferencedSquareIds.has(endNode.id);
     if (startSquareHidden || endSquareHidden) return null;
