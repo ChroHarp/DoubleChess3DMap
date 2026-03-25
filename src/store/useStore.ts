@@ -3,6 +3,9 @@ import type { ChessNode } from '../types';
 import rawData from '../data.json';
 import rawRectP1Data from '../rect_p1_data.json';
 import rawRectM1Data from '../rect_m1_data.json';
+import rawRectM2Data from '../rect_m2_data.json';
+import rawRectM3Data from '../rect_m3_data.json';
+import rawRectM4Data from '../rect_m4_data.json';
 import rawNoAdjData from '../noadj_data.json';
 import rawNoAdjP1Data from '../noadj_rect_p1_data.json';
 import rawNoAdjM1Data from '../noadj_rect_m1_data.json';
@@ -13,7 +16,10 @@ import coordsTopological from '../coords_topological.json';
 const squareNodes = (rawData as ChessNode[]).map(n => ({ ...n, nodeType: 'square' as const }));
 const rectP1Nodes = rawRectP1Data as ChessNode[];
 const rectM1Nodes = rawRectM1Data as ChessNode[];
-const nodesData = [...squareNodes, ...rectP1Nodes, ...rectM1Nodes];
+const rectM2Nodes = rawRectM2Data as ChessNode[];
+const rectM3Nodes = rawRectM3Data as ChessNode[];
+const rectM4Nodes = rawRectM4Data as ChessNode[];
+const nodesData = [...squareNodes, ...rectP1Nodes, ...rectM1Nodes, ...rectM2Nodes, ...rectM3Nodes, ...rectM4Nodes];
 
 const noAdjSquareNodes = (rawNoAdjData as ChessNode[]).map(n => ({ ...n, nodeType: 'noadj_square' as const }));
 const noAdjP1Nodes = (rawNoAdjP1Data as ChessNode[]).map(n => ({ ...n, nodeType: 'noadj_p1' as const }));
@@ -22,7 +28,7 @@ const noAdjNodesData = [...noAdjSquareNodes, ...noAdjP1Nodes, ...noAdjM1Nodes];
 
 // Pre-compute: square node IDs that are referenced by any rect nextNodes
 export const rectReferencedSquareIds = new Set<string>(
-    [...rectP1Nodes, ...rectM1Nodes].flatMap(n => n.nextNodes)
+    [...rectP1Nodes, ...rectM1Nodes, ...rectM2Nodes, ...rectM3Nodes, ...rectM4Nodes].flatMap(n => n.nextNodes)
 );
 
 const coordSets: Record<string, Record<string, [number, number, number]>> = {
@@ -39,6 +45,9 @@ interface DefaultState {
     showGrundy: boolean;
     showRectNodes: boolean;
     showM1Nodes: boolean;
+    showM2Nodes: boolean;
+    showM3Nodes: boolean;
+    showM4Nodes: boolean;
     showSquareNodes: boolean;
     noAdjMode: boolean;
     viewMode: 'sphere' | 'card';
@@ -57,6 +66,9 @@ interface ActionState {
     setShowGrundy: (show: boolean) => void;
     setShowRectNodes: (show: boolean) => void;
     setShowM1Nodes: (show: boolean) => void;
+    setShowM2Nodes: (show: boolean) => void;
+    setShowM3Nodes: (show: boolean) => void;
+    setShowM4Nodes: (show: boolean) => void;
     setShowSquareNodes: (show: boolean) => void;
     setNoAdjMode: (mode: boolean) => void;
     setViewMode: (mode: 'sphere' | 'card') => void;
@@ -74,6 +86,9 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     showGrundy: false,
     showRectNodes: true,
     showM1Nodes: true,
+    showM2Nodes: false,
+    showM3Nodes: false,
+    showM4Nodes: false,
     showSquareNodes: true,
     noAdjMode: false,
     viewMode: 'card',
@@ -94,6 +109,9 @@ export const useStore = create<DefaultState & ActionState>((set, get) => ({
     setShowGrundy: (show) => set({ showGrundy: show }),
     setShowRectNodes: (show) => set({ showRectNodes: show }),
     setShowM1Nodes: (show) => set({ showM1Nodes: show }),
+    setShowM2Nodes: (show) => set({ showM2Nodes: show }),
+    setShowM3Nodes: (show) => set({ showM3Nodes: show }),
+    setShowM4Nodes: (show) => set({ showM4Nodes: show }),
     setShowSquareNodes: (show) => set({ showSquareNodes: show }),
     setNoAdjMode: (mode) => set((state) => {
         const nextNodes = mode ? noAdjNodesData : nodesData;

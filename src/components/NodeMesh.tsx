@@ -23,6 +23,9 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
         showGrundy,
         showRectNodes,
         showM1Nodes,
+        showM2Nodes,
+        showM3Nodes,
+        showM4Nodes,
         showSquareNodes,
         noAdjMode,
         viewMode,
@@ -45,8 +48,12 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
     // 3. If showBelowLevel is true, show everything below activeLevel
     const isP1 = node.nodeType === 'rect_p1' || node.nodeType === 'noadj_p1';
     const isM1 = node.nodeType === 'rect_m1' || node.nodeType === 'noadj_m1';
-    const isRect = isP1 || isM1;
-    const isHiddenByRect = (isP1 && !showRectNodes) || (isM1 && !showM1Nodes);
+    const isM2 = node.nodeType === 'rect_m2';
+    const isM3 = node.nodeType === 'rect_m3';
+    const isM4 = node.nodeType === 'rect_m4';
+    const isRect = isP1 || isM1 || isM2 || isM3 || isM4;
+    const isHiddenByRect = (isP1 && !showRectNodes) || (isM1 && !showM1Nodes)
+        || (isM2 && !showM2Nodes) || (isM3 && !showM3Nodes) || (isM4 && !showM4Nodes);
     // Hide square nodes when showSquareNodes is off, unless they are endpoints of rect edges
     const isHiddenBySquare = !isRect && !showSquareNodes && !rectReferencedSquareIds.has(node.id);
     let isHiddenByLevel = false;
@@ -75,10 +82,12 @@ export const NodeMesh = ({ node }: NodeMeshProps) => {
 
     const [x_pos, y_pos, z_pos] = getNodePosition(node.id);
 
-    // Identify ending point: [0,0,0,0] normally; in noAdj mode, any terminal node (no moves)
+    // Identify ending point: nodes with no legal moves (nextNodes empty & isWin=true).
+    // This covers [0,0,0,0] for square nodes, and [n,0,0,0] / [0,0,n,0] for mk nodes.
+    // In noAdj mode, any terminal (empty nextNodes) is an end node.
     const isEndNode = noAdjMode
         ? node.nextNodes.length === 0
-        : node.matrix[0] === 0 && node.matrix[1] === 0 && node.matrix[2] === 0 && node.matrix[3] === 0;
+        : node.nextNodes.length === 0 && node.isWin === true;
 
     // Identify starting points: R1=0 and C1=0 (excluding the end node)
     // For original nodes, this is [[n,0],[n,0]], for rectangular nodes this is [[n,0],[n+1,0]] or vice-versa

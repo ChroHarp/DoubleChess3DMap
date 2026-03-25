@@ -11,13 +11,25 @@ def load_nodes():
         p1 = json.load(f)
     with open("src/rect_m1_data.json", "r", encoding="utf-8") as f:
         m1 = json.load(f)
+    with open("src/rect_m2_data.json", "r", encoding="utf-8") as f:
+        m2 = json.load(f)
+    with open("src/rect_m3_data.json", "r", encoding="utf-8") as f:
+        m3 = json.load(f)
+    with open("src/rect_m4_data.json", "r", encoding="utf-8") as f:
+        m4 = json.load(f)
     for n in square:
         n.setdefault("nodeType", "square")
     for n in p1:
         n.setdefault("nodeType", "rect_p1")
     for n in m1:
         n.setdefault("nodeType", "rect_m1")
-    return square + p1 + m1
+    for n in m2:
+        n.setdefault("nodeType", "rect_m2")
+    for n in m3:
+        n.setdefault("nodeType", "rect_m3")
+    for n in m4:
+        n.setdefault("nodeType", "rect_m4")
+    return square + p1 + m1 + m2 + m3 + m4
 
 
 def coords_original(nodes):

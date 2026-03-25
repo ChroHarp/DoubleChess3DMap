@@ -1,0 +1,1605 @@
+[
+  {
+    "id": "Rect_m2_3_0_1_0",
+    "n": 4.5,
+    "t": 0,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      3,
+      0,
+      1,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_2_0_0_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_2_0_0_1",
+    "n": 3.5,
+    "t": 1,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      2,
+      0,
+      0,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_1_0_0_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_1_0_0_0",
+    "n": 1.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "nextNodes": [],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_0_2_0",
+    "n": 5.5,
+    "t": 0,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      4,
+      0,
+      2,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_3_1_1_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_3_1_1_1",
+    "n": 4.5,
+    "t": 1,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      3,
+      1,
+      1,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_3_0_0_2",
+      "Rect_m2_2_1_1_0",
+      "Lv4_e2_r2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_3_0_0_2",
+    "n": 5.5,
+    "t": 1,
+    "x": 3,
+    "y": 0,
+    "matrix": [
+      3,
+      0,
+      0,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_2_0_0_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_2_1_1_0",
+    "n": 2.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      2,
+      1,
+      1,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_2_0_0_1",
+      "Lv2_e1_r1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_0_3_0",
+    "n": 6.5,
+    "t": 0,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      5,
+      0,
+      3,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_4_1_2_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_1_2_1",
+    "n": 5.5,
+    "t": 1,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      4,
+      1,
+      2,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_3_1_1_2",
+      "Rect_m2_4_0_1_2",
+      "Rect_m2_3_2_2_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_3_1_1_2",
+    "n": 4.5,
+    "t": 2,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      3,
+      1,
+      1,
+      2
+    ],
+    "nextNodes": [
+      "Lv6_e3_r3",
+      "Rect_m1_2_1_1_1",
+      "Lv4_e2_r2"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_0_1_2",
+    "n": 6.5,
+    "t": 1,
+    "x": 3,
+    "y": 0,
+    "matrix": [
+      4,
+      0,
+      1,
+      2
+    ],
+    "nextNodes": [
+      "Lv6_e3_r3",
+      "Rect_m2_3_1_1_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_3_2_2_0",
+    "n": 3.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      3,
+      2,
+      2,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m1_2_1_1_1",
+      "Rect_m2_3_1_1_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_0_4_0",
+    "n": 7.5,
+    "t": 0,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      6,
+      0,
+      4,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_5_1_3_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_1_3_1",
+    "n": 6.5,
+    "t": 1,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      5,
+      1,
+      3,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_4_2_2_2",
+      "Rect_m2_5_0_2_2",
+      "Rect_m2_4_2_3_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_2_2_2",
+    "n": 5.5,
+    "t": 2,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      4,
+      2,
+      2,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_4_1_1_3",
+      "Rect_m2_3_2_2_1",
+      "Lv6_e3_r2"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_0_2_2",
+    "n": 7.5,
+    "t": 1,
+    "x": 3,
+    "y": 0,
+    "matrix": [
+      5,
+      0,
+      2,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_4_1_1_3",
+      "Rect_m2_4_1_2_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_2_3_0",
+    "n": 4.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      4,
+      2,
+      3,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_3_2_2_1",
+      "Rect_m2_4_1_2_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_1_1_3",
+    "n": 6.5,
+    "t": 2,
+    "x": 3,
+    "y": 0,
+    "matrix": [
+      4,
+      1,
+      1,
+      3
+    ],
+    "nextNodes": [
+      "Lv8_e4_r4",
+      "Rect_m2_3_1_1_2",
+      "Lv6_e3_r3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_3_2_2_1",
+    "n": 4.5,
+    "t": 2,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      3,
+      2,
+      2,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_3_1_1_2",
+      "Rect_m1_2_2_2_0",
+      "Lv4_e2_r1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_0_5_0",
+    "n": 6.0,
+    "t": 0,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      0,
+      5,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_6_1_4_1"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_1_4_1",
+    "n": 7.5,
+    "t": 1,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      6,
+      1,
+      4,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_5_2_3_2",
+      "Rect_m2_6_0_3_2",
+      "Rect_m2_5_2_4_0"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_2_3_2",
+    "n": 6.5,
+    "t": 2,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      5,
+      2,
+      3,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_4_2_2_3",
+      "Rect_m2_5_1_2_3",
+      "Rect_m2_4_3_3_1"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_0_3_2",
+    "n": 5.5,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      0,
+      3,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_5_1_2_3",
+      "Rect_m2_5_1_3_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_2_4_0",
+    "n": 5.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      5,
+      2,
+      4,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_4_3_3_1",
+      "Rect_m2_5_1_3_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_2_2_3",
+    "n": 6.5,
+    "t": 3,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      4,
+      2,
+      2,
+      3
+    ],
+    "nextNodes": [
+      "Lv8_e4_r3",
+      "Rect_m1_3_2_2_2",
+      "Lv6_e3_r2"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_1_2_3",
+    "n": 7.5,
+    "t": 2,
+    "x": 3,
+    "y": 0,
+    "matrix": [
+      5,
+      1,
+      2,
+      3
+    ],
+    "nextNodes": [
+      "Lv8_e4_r3",
+      "Rect_m2_5_0_1_4",
+      "Rect_m2_4_2_2_2"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_3_3_1",
+    "n": 5.5,
+    "t": 2,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      4,
+      3,
+      3,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m1_3_2_2_2",
+      "Rect_m2_4_2_2_2",
+      "Rect_m2_3_3_3_0"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_0_1_4",
+    "n": 5.0,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      5,
+      0,
+      1,
+      4
+    ],
+    "nextNodes": [
+      "Lv8_e4_r4",
+      "Rect_m2_4_1_1_3"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_3_3_3_0",
+    "n": 4.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      3,
+      3,
+      3,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m1_2_2_2_1",
+      "Rect_m2_3_2_2_1"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_0_6_0",
+    "n": 7.0,
+    "t": 0,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      0,
+      6,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_7_1_5_1"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_1_5_1",
+    "n": 7.0,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      1,
+      5,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_6_2_4_2",
+      "Rect_m2_7_0_4_2",
+      "Rect_m2_6_2_5_0"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_2_4_2",
+    "n": 7.5,
+    "t": 2,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      6,
+      2,
+      4,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_5_3_3_3",
+      "Rect_m2_6_1_3_3",
+      "Rect_m2_5_3_4_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_0_4_2",
+    "n": 6.5,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      0,
+      4,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_6_1_3_3",
+      "Rect_m2_6_1_4_1"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_2_5_0",
+    "n": 6.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      6,
+      2,
+      5,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_5_3_4_1",
+      "Rect_m2_6_1_4_1"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_3_3_3",
+    "n": 7.5,
+    "t": 3,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      5,
+      3,
+      3,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_5_2_2_4",
+      "Rect_m2_4_3_3_2",
+      "Lv8_e4_r2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_1_3_3",
+    "n": 6.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      1,
+      3,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_5_2_2_4",
+      "Rect_m2_6_0_2_4",
+      "Rect_m2_5_2_3_2"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_3_4_1",
+    "n": 6.5,
+    "t": 2,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      5,
+      3,
+      4,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_4_3_3_2",
+      "Rect_m2_5_2_3_2",
+      "Rect_m2_4_4_4_0"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_2_2_4",
+    "n": 8.5,
+    "t": 3,
+    "x": 3,
+    "y": 0,
+    "matrix": [
+      5,
+      2,
+      2,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m1_5_1_1_5",
+      "Rect_m2_4_2_2_3",
+      "Lv8_e4_r3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_3_3_2",
+    "n": 6.5,
+    "t": 3,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      4,
+      3,
+      3,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_4_2_2_3",
+      "Rect_m1_3_3_3_1",
+      "Lv6_e3_r1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_0_2_4",
+    "n": 6.0,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      0,
+      2,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m1_5_1_1_5",
+      "Rect_m2_5_1_2_3"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_4_4_0",
+    "n": 5.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      4,
+      4,
+      4,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m1_3_3_3_1",
+      "Rect_m2_4_3_3_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_9_0_7_0",
+    "n": 8.0,
+    "t": 0,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      9,
+      0,
+      7,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_8_1_6_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_1_6_1",
+    "n": 8.0,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      1,
+      6,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_7_2_5_2",
+      "Rect_m2_8_0_5_2",
+      "Rect_m2_7_2_6_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_2_5_2",
+    "n": 8.0,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      2,
+      5,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_6_3_4_3",
+      "Rect_m2_7_1_4_3",
+      "Rect_m2_6_3_5_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_0_5_2",
+    "n": 7.5,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      0,
+      5,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_7_1_4_3",
+      "Rect_m2_7_1_5_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_2_6_0",
+    "n": 7.5,
+    "t": 1,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      7,
+      2,
+      6,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_6_3_5_1",
+      "Rect_m2_7_1_5_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_3_4_3",
+    "n": 8.5,
+    "t": 3,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      6,
+      3,
+      4,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_5_3_3_4",
+      "Rect_m2_6_2_3_4",
+      "Rect_m2_5_4_4_2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_1_4_3",
+    "n": 7.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      1,
+      4,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_6_2_3_4",
+      "Rect_m2_7_0_3_4",
+      "Rect_m2_6_2_4_2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_3_5_1",
+    "n": 7.5,
+    "t": 2,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      6,
+      3,
+      5,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_5_4_4_2",
+      "Rect_m2_6_2_4_2",
+      "Rect_m2_5_4_5_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_3_3_4",
+    "n": 8.5,
+    "t": 4,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      5,
+      3,
+      3,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m1_5_2_2_5",
+      "Rect_m1_4_3_3_3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_2_3_4",
+    "n": 7.5,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      2,
+      3,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m1_5_2_2_5",
+      "Rect_m2_6_1_2_5",
+      "Rect_m2_5_3_3_3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_4_4_2",
+    "n": 7.5,
+    "t": 3,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      5,
+      4,
+      4,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m1_4_3_3_3",
+      "Rect_m2_5_3_3_3",
+      "Rect_m2_4_4_4_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_0_3_4",
+    "n": 7.0,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      0,
+      3,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m2_6_1_2_5",
+      "Rect_m2_6_1_3_3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_4_5_0",
+    "n": 6.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      5,
+      4,
+      5,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_4_4_4_1",
+      "Rect_m2_5_3_4_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_1_2_5",
+    "n": 7.0,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      1,
+      2,
+      5
+    ],
+    "nextNodes": [
+      "Rect_m1_5_1_1_5",
+      "Rect_m2_6_0_1_6",
+      "Rect_m2_5_2_2_4"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_4_4_1",
+    "n": 6.5,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      4,
+      4,
+      4,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m1_3_3_3_2",
+      "Rect_m2_4_3_3_2",
+      "Rect_m1_3_4_4_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_0_1_6",
+    "n": 6.5,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      0,
+      1,
+      6
+    ],
+    "nextNodes": [
+      "Rect_m1_5_0_0_5",
+      "Rect_m1_5_1_1_5"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_10_0_8_0",
+    "n": 9.0,
+    "t": 0,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      10,
+      0,
+      8,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_9_1_7_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_9_1_7_1",
+    "n": 9.0,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      9,
+      1,
+      7,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_8_2_6_2",
+      "Rect_m2_9_0_6_2",
+      "Rect_m2_8_2_7_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_2_6_2",
+    "n": 9.0,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      2,
+      6,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_7_3_5_3",
+      "Rect_m2_8_1_5_3",
+      "Rect_m2_7_3_6_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_9_0_6_2",
+    "n": 8.5,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      9,
+      0,
+      6,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_8_1_5_3",
+      "Rect_m2_8_1_6_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_2_7_0",
+    "n": 8.5,
+    "t": 1,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      2,
+      7,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_7_3_6_1",
+      "Rect_m2_8_1_6_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_3_5_3",
+    "n": 9.0,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      3,
+      5,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_6_4_4_4",
+      "Rect_m2_7_2_4_4",
+      "Rect_m2_6_4_5_2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_1_5_3",
+    "n": 8.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      1,
+      5,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_7_2_4_4",
+      "Rect_m2_8_0_4_4",
+      "Rect_m2_7_2_5_2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_3_6_1",
+    "n": 8.5,
+    "t": 2,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      7,
+      3,
+      6,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m2_6_4_5_2",
+      "Rect_m2_7_2_5_2",
+      "Rect_m2_6_4_6_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_4_4_4",
+    "n": 8.5,
+    "t": 4,
+    "x": 2,
+    "y": 0,
+    "matrix": [
+      6,
+      4,
+      4,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m2_6_3_3_5",
+      "Rect_m2_5_4_4_3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_2_4_4",
+    "n": 8.5,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      2,
+      4,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m2_6_3_3_5",
+      "Rect_m2_7_1_3_5",
+      "Rect_m2_6_3_4_3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_4_5_2",
+    "n": 8.5,
+    "t": 3,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      6,
+      4,
+      5,
+      2
+    ],
+    "nextNodes": [
+      "Rect_m2_5_4_4_3",
+      "Rect_m2_6_3_4_3",
+      "Rect_m2_5_5_5_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_8_0_4_4",
+    "n": 8.0,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      8,
+      0,
+      4,
+      4
+    ],
+    "nextNodes": [
+      "Rect_m2_7_1_3_5",
+      "Rect_m2_7_1_4_3"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_4_6_0",
+    "n": 7.5,
+    "t": 2,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      4,
+      6,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m2_5_5_5_1",
+      "Rect_m2_6_3_5_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_3_3_5",
+    "n": 8.5,
+    "t": 4,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      3,
+      3,
+      5
+    ],
+    "nextNodes": [
+      "Rect_m2_6_2_2_6",
+      "Rect_m2_5_3_3_4"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_4_4_3",
+    "n": 8.5,
+    "t": 4,
+    "x": 1,
+    "y": 0,
+    "matrix": [
+      5,
+      4,
+      4,
+      3
+    ],
+    "nextNodes": [
+      "Rect_m2_5_3_3_4",
+      "Rect_m1_4_4_4_2"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_1_3_5",
+    "n": 8.0,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      1,
+      3,
+      5
+    ],
+    "nextNodes": [
+      "Rect_m2_6_2_2_6",
+      "Rect_m2_7_0_2_6",
+      "Rect_m2_6_2_3_4"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_5_5_5_1",
+    "n": 7.5,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      5,
+      5,
+      5,
+      1
+    ],
+    "nextNodes": [
+      "Rect_m1_4_4_4_2",
+      "Rect_m2_5_4_4_2",
+      "Rect_m2_4_5_5_0"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_2_2_6",
+    "n": 8.0,
+    "t": 4,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      2,
+      2,
+      6
+    ],
+    "nextNodes": [
+      "Rect_m2_6_1_1_6",
+      "Rect_m1_5_2_2_5"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_7_0_2_6",
+    "n": 7.5,
+    "t": 3,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      7,
+      0,
+      2,
+      6
+    ],
+    "nextNodes": [
+      "Rect_m2_6_1_1_6",
+      "Rect_m2_6_1_2_5"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_4_5_5_0",
+    "n": 7.5,
+    "t": 3,
+    "x": 0,
+    "y": 1,
+    "matrix": [
+      4,
+      5,
+      5,
+      0
+    ],
+    "nextNodes": [
+      "Rect_m1_3_4_4_1",
+      "Rect_m2_4_4_4_1"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_1_1_6",
+    "n": 7.0,
+    "t": 4,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      1,
+      1,
+      6
+    ],
+    "nextNodes": [
+      "Rect_m2_6_0_0_6",
+      "Rect_m1_5_1_1_5"
+    ],
+    "isWin": false,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  },
+  {
+    "id": "Rect_m2_6_0_0_6",
+    "n": 6.0,
+    "t": 4,
+    "x": 0,
+    "y": 0,
+    "matrix": [
+      6,
+      0,
+      0,
+      6
+    ],
+    "nextNodes": [
+      "Rect_m1_5_0_0_5"
+    ],
+    "isWin": true,
+    "grundy": null,
+    "nodeType": "rect_m2"
+  }
+]

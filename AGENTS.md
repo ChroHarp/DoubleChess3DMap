@@ -24,6 +24,16 @@
      - 同樣計算 `isWin` 逆向分析
      - 輸出至 `src/rect_m1_data.json`
 
+4. **`generate_rect_mk_nodes.py`**
+   - **用途：** 矩形 m2/m3/m4 節點生成腳本。依序產生以 $[n+k, 0, n, 0]$（$k=2,3,4$）為起點的節點群。
+   - **功能：**
+     - 鏈式依賴：m2 依賴 square+p1+m1，m3 依賴 +m2，m4 依賴 +m3
+     - **終端節點修正**：當 BFS 到達無合法移動的狀態（如 $[n,0,0,0]$ 或 $[0,0,n,0]$），
+       透過 `has_any_moves()` 函式偵測，標記為 `isWin=True`（與 $[0,0,0,0]$ 相同），
+       而非過去的 `isWin=False`（只有被 e 步深度限制截斷的節點才為 False）
+     - e 步深度限制：`floor((n+1)/2)`，與 m1 相同規則
+     - 輸出至 `src/rect_m2_data.json`、`src/rect_m3_data.json`、`src/rect_m4_data.json`
+
 4. **`generate_coordinates.py`**
    - **用途：** 座標方案產生腳本。讀取所有節點，輸出兩套 3D 座標 JSON 供前端切換比較。
    - **功能：**
@@ -73,6 +83,13 @@
 - ID 格式：`Rect_m1_{R0}_{R1}_{C0}_{C1}`
 - 資料來源：`src/rect_m1_data.json`
 - 含逆向推算之 `isWin` 值；重複偵測涵蓋方形節點與 p1 節點
+
+### 矩形 mk 節點（Rect m2/m3/m4 Nodes）
+- 起始矩陣：$[n+k, 0, n, 0]$（$k=2,3,4$，行數比列數多 $k$）
+- ID 格式：`Rect_m2_{R0}_{R1}_{C0}_{C1}` 等
+- 資料來源：`src/rect_m2_data.json`、`src/rect_m3_data.json`、`src/rect_m4_data.json`
+- 終端節點（如 $[n,0,0,0]$）標記為 `isWin=True`，同 $[0,0,0,0]$
+- 前端以 `nodeType: 'rect_m2'/'rect_m3'/'rect_m4'` 區分，統一由 showMkNodes 控制顯示
 
 ---
 
@@ -129,4 +146,4 @@
 - `X = (R0 - C0) * 5 + (R1 - C1) * 1`　── 行列不對稱程度
 - `Y = -(R1 + C1) * 4`　── 已落子數（換子深度）
 
-此公式保證 225 個節點（方形 + p1 + m1）完全無碰撞。
+此公式保證 475 個節點（方形 + p1 + m1 + m2 + m3 + m4）完全無碰撞。
